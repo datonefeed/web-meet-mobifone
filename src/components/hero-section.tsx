@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Play, Download, Apple } from "lucide-react";
+import { Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { PictureTiltCard } from "./picture-tilt-card";
 
@@ -9,22 +9,22 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 overflow-hidden"
+      className="relative min-h-screen overflow-hidden"
       style={{ backgroundImage: "url('/images/landing_page_header_background.png')" }}
     >
-      <div className="relative container mx-auto px-4 pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative container mx-auto px-4 pt-32 pb-20 ">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white"
           >
-            <h1 className="text-5xl lg:text-4xl font-bold mb-6 text-balance">
+            <h1 className="text-4xl lg:text-4xl font-bold mb-6 text-balance">
               Nền tảng{" "}
               <span className="text-primary bg-clip-text bg-gradient-to-r">họp trực tuyến</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 text-pretty">
+            <p className="text-base text-gray-300 mb-8 text-pretty">
               MEET mang lại trải nghiệm dễ dàng, bảo mật và không giới hạn
             </p>
 
@@ -46,7 +46,7 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-2  ">
+            <div className="flex flex-col sm:flex-row gap-4 mb-4  ">
               {/* Google Play */}
               <Button
                 variant="secondary"
