@@ -1,132 +1,121 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { MapPin, Phone, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import landingData from "@/mocks/landing-data.json";
 
-export function Footer() {
+export default function Footer() {
+  const footer = landingData.footer;
+
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
-              </div>
-              <span className="text-xl font-bold">Meet</span>
-            </div>
-            <p className="text-gray-400 mb-4">Nền tảng họp trực tuyến hàng đầu Việt Nam</p>
-            <p className="text-gray-400 text-sm">© 2024 Meet. Tất cả quyền được bảo lưu.</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-semibold mb-4">Sản phẩm</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Tính năng
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Bảng giá
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Ứng dụng di động
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  API
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-semibold mb-4">Hỗ trợ</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Trung tâm trợ giúp
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Liên hệ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Báo cáo lỗi
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Trạng thái hệ thống
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-semibold mb-4">Công ty</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Về chúng tôi
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Tuyển dụng
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Tin tức
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Chính sách bảo mật
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-        </div>
-
+    <footer className="bg-slate-800 text-white py-12">
+      <div className="container mx-auto px-6">
+        {/* Main Footer Content */}
         <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8"
         >
-          <p>Được phát triển với ❤️ tại Việt Nam</p>
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <img src={footer.logo} alt="logo" className="mx-auto" />
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold mb-4">Liên hệ</h3>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 mt-1 text-gray-400 flex-shrink-0" />
+                <div className="text-sm text-gray-300">
+                  <p className="text-gray-400 text-xs mb-1">Địa chỉ</p>
+                  {footer.contact.address.map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <Phone className="w-4 h-4 mt-1 text-gray-400 flex-shrink-0" />
+                <div className="text-sm text-gray-300">
+                  <p className="text-gray-400 text-xs mb-1">Hotline</p>
+                  <p>{footer.contact.hotline}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <Mail className="w-4 h-4 mt-1 text-gray-400 flex-shrink-0" />
+                <div className="text-sm text-gray-300">
+                  <p className="text-gray-400 text-xs mb-1">Email</p>
+                  <p>{footer.contact.email}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* App Download */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold mb-4">Tải app</h3>
+            <div className="space-y-3">
+              {footer.apps.map((app, idx) => (
+                <Button
+                  key={idx}
+                  variant="outline"
+                  className="w-full bg-black border-gray-600 text-white hover:bg-black/30 hover:text-white justify-start p-3 h-auto"
+                >
+                  <div className="flex items-center space-x-3">
+                    <img src={app.icon} alt={app.name} className="mx-auto h-8" />
+                    <div className="text-left">
+                      <p className="text-xs text-gray-400">{app.subtitle}</p>
+                      <p className="text-sm font-semibold">{app.name}</p>
+                    </div>
+                  </div>
+                </Button>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Bottom */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="border-t border-gray-700 pt-6"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-sm text-gray-400">{footer.bottom.copyright}</p>
+            <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+              {footer.bottom.links.map((link, idx) => (
+                <a key={idx} href={link.url} className="hover:text-white transition-colors">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }
