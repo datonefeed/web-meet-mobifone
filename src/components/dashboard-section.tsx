@@ -1,73 +1,86 @@
 "use client";
 
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import landingData from "@/mocks/landing-data.json";
+
+const { features } = landingData.dashboard;
 
 export function DashboardSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const [activeFeature, setActiveFeature] = useState("screen-share");
+  const currentFeature = features.find((f) => f.id === activeFeature) || features[1];
 
   return (
-    <section id="features" ref={ref} className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-slate-900">
+      <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        {/* Left side - Demo image */}
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Bảng điều khiển</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Giao diện trực quan, dễ sử dụng với đầy đủ tính năng quản lý cuộc họp
-          </p>
+          <div className="relative rounded-2xl shadow-2xl">
+            <motion.div
+              key={currentFeature.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="aspect-video bg-white rounded-lg overflow-hidden"
+            >
+              <Image
+                src={currentFeature.image || "/placeholder.svg"}
+                alt={`Demo of ${currentFeature.label}`}
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
         </motion.div>
 
+        {/* Right side - Content */}
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="max-w-6xl mx-auto"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="space-y-8"
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <div className="bg-gray-800 rounded-xl p-6">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
-                  <div>
-                    <div className="text-white font-semibold">Cuộc họp nhóm Marketing</div>
-                    <div className="text-gray-400 text-sm">15 người tham gia</div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 text-sm">Đang diễn ra</span>
-                </div>
-              </div>
+          <motion.div
+            key={currentFeature.id + "-text"}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl font-bold text-white mb-6 text-balance">
+              {currentFeature.title}
+            </h1>
+            <p className="text-slate-300 text-lg leading-relaxed">{currentFeature.description}</p>
+          </motion.div>
 
-              <div className="grid grid-cols-4 gap-4 mb-6">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                  <div
-                    key={i}
-                    className="bg-gray-700 rounded-lg aspect-video flex items-center justify-center"
+          {/* Feature buttons */}
+          <div className="space-y-4">
+            {[0, 1, 2].map((rowIndex) => (
+              <div key={rowIndex} className="flex flex-wrap gap-3">
+                {features.slice(rowIndex * 3, rowIndex * 3 + 3).map((feature) => (
+                  <Button
+                    key={feature.id}
+                    variant={activeFeature === feature.id ? "default" : "secondary"}
+                    className={`rounded-full px-6 py-3 transition-all duration-200 border ${
+                      activeFeature === feature.id
+                        ? "bg-blue-600 hover:bg-blue-700 text-white"
+                        : "bg-slate-700 hover:bg-slate-600 text-slate-200"
+                    }`}
+                    onClick={() => setActiveFeature(feature.id)}
                   >
-                    <div className="w-8 h-8 bg-gray-600 rounded-full"></div>
-                  </div>
+                    {feature.label}
+                  </Button>
                 ))}
               </div>
-
-              <div className="flex items-center justify-center space-x-4">
-                <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  Kết thúc cuộc họp
-                </button>
-                <button className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  Chia sẻ màn hình
-                </button>
-                <button className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  Ghi âm
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
         </motion.div>
       </div>
