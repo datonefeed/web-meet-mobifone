@@ -10,22 +10,26 @@ export function TestimonialsSection() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section id="feedback" ref={ref} className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
+    <section
+      id="feedback"
+      ref={ref}
+      className="py-16 md:py-20 bg-gradient-to-br from-gray-900 to-blue-900"
+    >
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-auto max-w-6xl">
           {/* Left block: title + description */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:w-1/2 text-center lg:text-left mx-auto"
+            className="text-center lg:text-left space-y-4"
           >
-            <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-3xl md:text-4xl font-bold text-white leading-snug">
               Khách hàng đã nói gì về <br />
-              <span className="text-6xl font-extrabold text-blue-400">Meet?</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-2xl">
-              Lắng nghe phản hồi từ những khách hàng đã tin tưởng sử dụng Meet
+              <span className="text-4xl md:text-6xl font-extrabold text-primary">Meet</span>
+            </h1>
+            <p className="text-base md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0">
+              Lắng nghe trải nghiệm của khách hàng tin dùng sản phẩm.
             </p>
           </motion.div>
 
@@ -34,7 +38,7 @@ export function TestimonialsSection() {
             initial={{ y: 50, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:w-1/2 flex justify-center"
+            className="lg:w-1/2 flex justify-center lg:justify-end"
           >
             <ShuffleCards />
           </motion.div>
