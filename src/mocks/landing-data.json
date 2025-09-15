@@ -1,0 +1,312 @@
+{
+  "features": [
+    {
+      "number": "01",
+      "title": "Kết nối nhiều điểm cầu",
+      "description": "Hỗ trợ lên đến 1000 điểm cầu tương tác 2 chiều và hỗ trợ hội thảo Webinar lên đến 10.000 điểm cầu",
+      "bgColor": "bg-orange-400"
+    },
+    {
+      "number": "02",
+      "title": "Tích hợp",
+      "description": "Dễ dàng tích hợp với các hệ thống Polycom, Cisco...",
+      "bgColor": "bg-orange-400"
+    },
+    {
+      "number": "03",
+      "title": "Đa nền tảng",
+      "description": "Được phát triển trên đa nền tảng : Web Application , Mobile App, Tablet App",
+      "bgColor": "bg-blue-400"
+    },
+    {
+      "number": "04",
+      "title": "Tính năng nâng cao",
+      "description": "Xây dựng tính năng như tích hợp AI, Kết luận cuộc họp, Dịch thuật trực tuyến, gọi di động để vào cuộc họp",
+      "bgColor": "bg-teal-500"
+    }
+  ],
+
+  "performance": {
+    "statistics": {
+      "value": "99%",
+      "description": "Khách hàng của Meet cảm thấy rất tự tin rằng các cuộc họp của họ được an toàn và bảo mật."
+    },
+    "awards": [
+      {
+        "title": "Meeting Solutions",
+        "subtitle": "Gartner Peer Insights",
+        "badge": "/images/icon_awards1.png"
+      },
+      {
+        "title": "Meetings | Webinars",
+        "subtitle": "G2",
+        "badge": "/images/icon_awards2.png"
+      },
+      {
+        "title": "Meetings | Streaming",
+        "subtitle": "TrustRadius",
+        "badge": "/images/icon_awards3.png"
+      },
+      {
+        "title": "Meetings | Webinars",
+        "subtitle": "G2",
+        "badge": "/images/icon_awards3.png"
+      },
+      {
+        "title": "Meeting Solutions",
+        "subtitle": "Gartner Peer Insights",
+        "badge": "/images/icon_awards2.png"
+      },
+      {
+        "title": "Meetings | Streaming",
+        "subtitle": "TrustRadius",
+        "badge": "/images/icon_awards1.png"
+      }
+    ],
+    "partners": [
+      {
+        "name": "Bộ Giáo Dục và Đào Tạo",
+        "logo": "/images/partner1.png"
+      },
+      {
+        "name": "Kiểm Sát Nhân Dân",
+        "logo": "/images/partner2.png"
+      },
+      {
+        "name": "Thanh Tra Việt Nam",
+        "logo": "/images/partner3.png"
+      },
+      {
+        "name": "Quốc Hội Việt Nam",
+        "logo": "/images/partner4.png"
+      },
+      {
+        "name": "Bộ Y Tế",
+        "logo": "/images/partner5.jpg"
+      },
+      {
+        "name": "Tòa Án Nhân Dân",
+        "logo": "/images/partner6.png"
+      }
+    ]
+  },
+
+  "dashboard": {
+    "features": [
+      {
+        "id": "video-call",
+        "label": "Gọi video",
+        "title": "Gọi video chất lượng cao",
+        "description": "Thực hiện cuộc gọi video với chất lượng HD, hỗ trợ nhiều người tham gia cùng lúc. Tính năng này cho phép giao tiếp trực tiếp, tạo kết nối tự nhiên và hiệu quả trong các cuộc họp trực tuyến.",
+        "image": "/images/call-video-mock.png"
+      },
+      {
+        "id": "screen-share",
+        "label": "Chia sẻ màn hình",
+        "title": "Chia sẻ màn hình",
+        "description": "Người dùng có thể chia sẻ màn hình của mình với những người khác trong cuộc họp. Điều này rất hữu ích để thuyết trình, trình bày thông tin, hướng dẫn sử dụng phần mềm, hoặc làm việc nhóm trên các tài liệu chung.",
+        "image": "/images/share-screen-mock.png"
+      },
+      {
+        "id": "polls-qa",
+        "label": "Thăm dò ý kiến & hỏi đáp",
+        "title": "Thăm dò ý kiến & hỏi đáp",
+        "description": "Tạo các cuộc thăm dò ý kiến trực tiếp và phiên hỏi đáp tương tác. Người tham gia có thể đặt câu hỏi, bình chọn và chia sẻ ý kiến một cách dễ dàng, giúp tăng cường sự tham gia trong cuộc họp.",
+        "image": "/images/opinion-poll-mock.png"
+      },
+      {
+        "id": "discussion",
+        "label": "Thảo luận",
+        "title": "Thảo luận nhóm",
+        "description": "Tính năng chat và thảo luận theo thời gian thực cho phép các thành viên trao đổi ý tưởng, chia sẻ thông tin và phối hợp công việc hiệu quả trong suốt cuộc họp.",
+        "image": "/images/disscusion-mock.png"
+      },
+      {
+        "id": "virtual-bg",
+        "label": "Hình nền ảo",
+        "title": "Hình nền ảo chuyên nghiệp",
+        "description": "Thay đổi hình nền của bạn bằng các tùy chọn ảo đa dạng. Tính năng này giúp tạo môi trường họp chuyên nghiệp và bảo vệ quyền riêng tư của không gian làm việc cá nhân.",
+        "image": "/images/virtual-bg-mock.png"
+      },
+      {
+        "id": "file-share",
+        "label": "Chia sẻ file",
+        "title": "Chia sẻ tài liệu",
+        "description": "Chia sẻ và truy cập các tài liệu, hình ảnh và file một cách nhanh chóng. Mọi người trong cuộc họp có thể xem, tải xuống và cộng tác trên các tài liệu được chia sẻ.",
+        "image": "/images/share-file-mock.png"
+      },
+      {
+        "id": "recording",
+        "label": "Ghi hình",
+        "title": "Ghi lại cuộc họp",
+        "description": "Ghi lại toàn bộ cuộc họp để xem lại sau này hoặc chia sẻ với những người không thể tham gia. Tính năng này đảm bảo không bỏ lỡ thông tin quan trọng nào từ cuộc họp.",
+        "image": "/images/record-mock.png"
+      },
+      {
+        "id": "whiteboard",
+        "label": "Bảng trắng",
+        "title": "Bảng trắng tương tác",
+        "description": "Sử dụng bảng trắng số để vẽ, ghi chú và brainstorm cùng nhau. Công cụ này hỗ trợ nhiều người cùng chỉnh sửa, tạo ra môi trường sáng tạo và hợp tác hiệu quả.",
+        "image": "/images/white-boarding-mock.png"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Bảng giá và gói dịch vụ",
+    "plans": [
+      {
+        "name": "Cơ bản",
+        "title": "Miễn phí",
+        "price": "Gói miễn phí",
+        "period": "",
+        "features": [
+          "100 người tham gia mỗi cuộc họp",
+          "Giới hạn thời gian 60 phút",
+          "Chat và tương tác",
+          "Chia sẻ tài liệu",
+          "Phòng họp hội thảo"
+        ],
+        "buttonText": "Đăng ký",
+        "popular": false
+      },
+      {
+        "name": "Nâng cao",
+        "title": "MM1",
+        "price": "120.000",
+        "period": "đ/tháng",
+        "features": [
+          "200 người tham gia mỗi cuộc họp",
+          "Giới hạn thời gian 24 giờ",
+          "Chat và tương tác",
+          "Chia sẻ tài liệu",
+          "Ghi âm",
+          "Bảng trắng",
+          "Thăm dò ý kiến và hỏi đáp",
+          "Giám sát cuộc họp"
+        ],
+        "buttonText": "Mua ngay",
+        "popular": false
+      },
+      {
+        "name": "Chuyên nghiệp",
+        "title": "MM2",
+        "price": "150.000",
+        "period": "đ/tháng",
+        "features": [
+          "300 người tham gia mỗi cuộc họp",
+          "Giới hạn thời gian 24 giờ",
+          "Chat và tương tác",
+          "Chia sẻ tài liệu",
+          "Ghi âm",
+          "Bảng trắng",
+          "Thăm dò ý kiến và hỏi đáp",
+          "Giám sát cuộc họp",
+          "Phòng họp hội thảo"
+        ],
+        "buttonText": "Mua ngay",
+        "popular": false
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Dư Tú Anh",
+      "title": "CEO",
+      "company": "Chân Trời Mới",
+      "content": "MEET đã thực sự giúp công việc của chúng tôi trở nên dễ dàng hơn. Giao diện đơn giản và tính ổn định tuyệt vời đã tạo nên những cuộc họp tuyệt vời mà không cần lo lắng về kết nối.",
+      "avatar": "/images/professional-woman-avatar.png"
+    },
+    {
+      "id": 2,
+      "name": "Adrian Y.",
+      "title": "Product Marketing",
+      "company": "Meta",
+      "content": "Chúng tôi đã sử dụng MEET cho việc đào tạo và hỗ trợ khách hàng. Khả năng tùy chỉnh và tính bảo mật cao đã khiến chúng tôi cảm thấy an tâm khi sử dụng nền tảng này.",
+      "avatar": "/images/gia_cat_luong.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Devin R.",
+      "title": "Growth Marketing Lead",
+      "company": "OpenAI",
+      "content": "Can not believe this is free. If X was $5,000 a month, it would be worth every penny. I plan to name my next child after X.",
+      "avatar": "/images/professional-man-avatar.png"
+    },
+    {
+      "id": 4,
+      "name": "Sarah M.",
+      "title": "CTO",
+      "company": "FutureTech",
+      "content": "MEET has transformed the way we collaborate. Smooth, secure, and scalable for our growing team.",
+      "avatar": "/images/professional-woman-avatar.png"
+    },
+    {
+      "id": 5,
+      "name": "John D.",
+      "title": "Project Manager",
+      "company": "InnovateX",
+      "content": "The ease of use and reliability of MEET have made it our go-to platform for all virtual meetings.",
+      "avatar": "/images/professional-man-avatar.png"}
+  ],
+  "faqs": [
+    {
+      "question": "Nền tảng hợp trực tuyến MEET là gì?",
+      "answer": "MEET là nền tảng họp trực tuyến được thiết kế cho các cá nhân, doanh nghiệp và các tập đoàn lớn tiến hành cuộc họp, hội nghị trực tuyến tại nhiều địa điểm khác nhau. Với MEET, các doanh nghiệp có thể tổ chức các cuộc họp nội bộ, họp với đối tác, khách hàng dễ dàng chỉ với vài thao tác trên website mà không cần phải cài đặt phần mềm phức tạp.",
+      "category": "Đăng ký tài khoản"
+    },
+    {
+      "question": "Tải hoặc truy cập nền tảng MEET như thế nào?",
+      "answer": "Trên máy tính/web:\nĐăng nhập trực tiếp qua website: meet.mobifone.vn\n\nTrên điện thoại:\nTrên thiết bị iOS vào App Store, trên thiết bị Android vào CH Play. Tìm kiếm MobiFone Meet, nhấn icon tải xuống",
+      "category": "Đăng ký tài khoản"
+    },
+    {
+      "question": "Khắc phục sự cố lỗi/không nghe thấy âm thanh khi tham gia họp trên web như thế nào?",
+      "answer": "Bước 1: Trong trang chủ meet.mobifone.vn, chọn icon ổ khóa trên thanh URL\n\nBước 2: Chọn Site Setting\n\nBước 3: Tìm tới hàng Sound, chọn Allow\n\nBước 4. Reload lại trang chủ",
+      "category": "Khắc phục sự cố/lỗi"
+    },
+    {
+      "question": "Cấp quyền truy cập microphone và camera trên app như thế nào?",
+      "answer": "Bước 1: Trên thiết bị điện thoại nhấn chọn Setting\n\nBước 2: Chọn ứng dụng Meet\n\nBước 3: Enable Microphone và Camera\n\nBước 4: Truy cập ứng dụng Meet và sử dụng",
+      "category": "Khắc phục sự cố/lỗi"
+    }
+  ],
+  "faqCategories": [
+    "Tất cả",
+    "Đăng ký tài khoản",
+    "Nâng cấp gói",
+    "Gia hạn dịch vụ",
+    "Khắc phục sự cố/lỗi"
+  ],
+
+  "footer": {
+    "logo": "/images/logo-footer.png",
+    "contact": {
+      "address": ["Toà Thái Nam, 22D Đường Định", "Nghĩa, Yên Hoà, Cầu Giấy, Hà Nội"],
+      "hotline": "0936.110.116 nhánh 3",
+      "email": "smartoffice.ttcntt@mobifone.vn"
+    },
+    "apps": [
+      {
+        "name": "Google Play",
+        "subtitle": "GET IT ON",
+        "icon": "/images/google_play-icon.png"
+      },
+      {
+        "name": "App Store",
+        "subtitle": "Download on the",
+        "icon": "/images/apple-white-logo.png"
+      }
+    ],
+    "bottom": {
+      "copyright":
+        "Copyright© 2023 - MobiFone All Rights Reserved",
+      "links": [
+        { "label": "Điều khoản sử dụng", "url": "#" },
+        { "label": "Chính sách bảo mật", "url": "#" },
+        { "label": "Chính sách bảo vệ thông tin cá nhân", "url": "#" }
+      ]
+    }
+  }
+  
+}
