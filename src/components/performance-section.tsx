@@ -5,8 +5,6 @@ import Image from "next/image";
 import landingData from "@/mocks/landing-data.json";
 import { useRef } from "react";
 
-const { statistics, awards, partners } = landingData.performance;
-
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -36,6 +34,7 @@ const floatVariants: Variants = {
 };
 
 export default function PerformanceSection() {
+  const { awards, partners } = landingData.performanceSection;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -72,7 +71,7 @@ export default function PerformanceSection() {
                 transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                 className="text-7xl font-bold mb-4 w-auto"
               >
-                {statistics.value}
+                99%
               </motion.div>
               <motion.p
                 initial={{ opacity: 0, x: -20 }}
@@ -80,7 +79,8 @@ export default function PerformanceSection() {
                 transition={{ delay: 0.5 }}
                 className="text-lg leading-relaxed"
               >
-                {statistics.description}
+                Khách hàng của Meet cảm thấy rất tự tin rằng các cuộc họp của họ được an toàn và bảo
+                mật.
               </motion.p>
             </motion.div>
           </motion.div>
