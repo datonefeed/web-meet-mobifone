@@ -4,10 +4,17 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSticky, setShowSticky] = useState(false);
+  const [language, setLanguage] = useState<"vi" | "en">("vi");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,11 +36,14 @@ export function Header() {
       >
         <div className="mx-auto px-4 py-2 flex items-center justify-between">
           <Logo />
-          <DesktopNav />
-          <DesktopAuthButton />
+          <DesktopNav language={language} />
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher language={language} setLanguage={setLanguage} />
+            <DesktopAuthButton language={language} />
+          </div>
           <MobileMenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         </div>
-        {isMenuOpen && <MobileMenu />}
+        {isMenuOpen && <MobileMenu language={language} setLanguage={setLanguage} />}
       </motion.header>
 
       {/* Header sticky */}
@@ -47,11 +57,14 @@ export function Header() {
         >
           <div className="px-2 py-3 flex items-center justify-between max-w-6xl mx-auto">
             <Logo />
-            <DesktopNav />
-            <DesktopAuthButton />
+            <DesktopNav language={language} />
+            <div className="hidden md:flex items-center space-x-4">
+              <LanguageSwitcher language={language} setLanguage={setLanguage} />
+              <DesktopAuthButton language={language} />
+            </div>
             <MobileMenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           </div>
-          {isMenuOpen && <MobileMenu />}
+          {isMenuOpen && <MobileMenu language={language} setLanguage={setLanguage} />}
         </motion.header>
       )}
     </>
@@ -66,16 +79,28 @@ function Logo() {
   );
 }
 
-function DesktopNav() {
+/* ======= NAVIGATION ======= */
+function DesktopNav({ language }: { language: "vi" | "en" }) {
+  const navItems =
+    language === "vi"
+      ? [
+          { label: "Trang chủ", href: "#home" },
+          { label: "Tính năng", href: "#features" },
+          { label: "Đánh giá", href: "#feedback" },
+          { label: "Bảng giá", href: "#pricing" },
+          { label: "FAQs", href: "#faqs" },
+        ]
+      : [
+          { label: "Home", href: "#home" },
+          { label: "Features", href: "#features" },
+          { label: "Testimonials", href: "#feedback" },
+          { label: "Pricing", href: "#pricing" },
+          { label: "FAQs", href: "#faqs" },
+        ];
+
   return (
     <nav className="hidden md:flex items-center space-x-8">
-      {[
-        { label: "Trang chủ", href: "#home" },
-        { label: "Tính năng", href: "#features" },
-        { label: "Đánh giá", href: "#feedback" },
-        { label: "Bảng giá", href: "#pricing" },
-        { label: "FAQs", href: "#faqs" },
-      ].map((item) => (
+      {navItems.map((item) => (
         <a
           key={item.label}
           href={item.href}
@@ -88,26 +113,48 @@ function DesktopNav() {
   );
 }
 
-/* ======= AUTH BUTTONS ======= */
-function DesktopAuthButton() {
+/* ======= LANGUAGE SWITCHER ======= */
+function LanguageSwitcher({
+  language,
+  setLanguage,
+}: {
+  language: "vi" | "en";
+  setLanguage: (l: "vi" | "en") => void;
+}) {
   return (
-    <div className="hidden md:flex items-center space-x-4">
-      <Button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/80 transition">
-        Đăng nhập
-      </Button>
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" className="px-3">
+          {language === "vi" ? "🇻🇳 Tiếng Việt" : "🇺🇸 English"}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => setLanguage("vi")}>🇻🇳 Tiếng Việt</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("en")}>🇺🇸 English</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
 
-function MobileAuthButton() {
+/* ======= AUTH BUTTONS ======= */
+function DesktopAuthButton({ language }: { language: "vi" | "en" }) {
+  return (
+    <Button className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/80 transition">
+      {language === "vi" ? "Đăng nhập" : "Login"}
+    </Button>
+  );
+}
+
+function MobileAuthButton({ language }: { language: "vi" | "en" }) {
   return (
     <Button className="bg-primary text-white w-full py-3 rounded-full hover:bg-primary/80 transition">
-      Đăng nhập
+      {language === "vi" ? "Đăng nhập" : "Login"}
     </Button>
   );
 }
 /* ============================= */
 
+/* ======= MOBILE ======= */
 function MobileMenuButton({
   isMenuOpen,
   setIsMenuOpen,
@@ -122,7 +169,30 @@ function MobileMenuButton({
   );
 }
 
-function MobileMenu() {
+function MobileMenu({
+  language,
+  setLanguage,
+}: {
+  language: "vi" | "en";
+  setLanguage: (l: "vi" | "en") => void;
+}) {
+  const navItems =
+    language === "vi"
+      ? [
+          { label: "Trang chủ", href: "#home" },
+          { label: "Tính năng", href: "#features" },
+          { label: "Đánh giá", href: "#feedback" },
+          { label: "Bảng giá", href: "#pricing" },
+          { label: "FAQs", href: "#faqs" },
+        ]
+      : [
+          { label: "Home", href: "#home" },
+          { label: "Features", href: "#features" },
+          { label: "Testimonials", href: "#feedback" },
+          { label: "Pricing", href: "#pricing" },
+          { label: "FAQs", href: "#faqs" },
+        ];
+
   return (
     <motion.div
       initial={{ opacity: 0, height: 0 }}
@@ -131,13 +201,7 @@ function MobileMenu() {
       className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 px-4"
     >
       <nav className="flex flex-col space-y-4">
-        {[
-          { label: "Trang chủ", href: "#home" },
-          { label: "Tính năng", href: "#features" },
-          { label: "Đánh giá", href: "#feedback" },
-          { label: "Bảng giá", href: "#pricing" },
-          { label: "FAQs", href: "#faqs" },
-        ].map((item) => (
+        {navItems.map((item) => (
           <a
             key={item.label}
             href={item.href}
@@ -148,7 +212,8 @@ function MobileMenu() {
         ))}
 
         <div className="flex flex-col space-y-2 pt-4">
-          <MobileAuthButton />
+          <MobileAuthButton language={language} />
+          <LanguageSwitcher language={language} setLanguage={setLanguage} />
         </div>
       </nav>
     </motion.div>
