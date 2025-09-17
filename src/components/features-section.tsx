@@ -5,7 +5,7 @@ import { useRef } from "react";
 import landingData from "@/mocks/landing-data.json";
 
 export function FeaturesSection() {
-  const features = landingData.features;
+  const features = landingData.featuresSection.features;
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
