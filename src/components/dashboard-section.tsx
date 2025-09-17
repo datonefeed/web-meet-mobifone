@@ -6,9 +6,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import landingData from "@/mocks/landing-data.json";
 
-const { features } = landingData.dashboard;
-
 export function DashboardSection() {
+  const { features } = landingData.dashboardSection;
   const [activeFeature, setActiveFeature] = useState("screen-share");
   const currentFeature = features.find((f) => f.id === activeFeature) || features[1];
 
