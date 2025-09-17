@@ -8,12 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import landingData from "@/mocks/landing-data.json";
 
-interface Faq {
-  question: string;
-  answer: string;
-  category: string;
-}
-
 export function FaqSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -21,8 +15,7 @@ export function FaqSection() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Tất cả");
 
-  const faqs: Faq[] = landingData.faqs;
-  const categories: string[] = landingData.faqCategories;
+  const { faqs, faqCategories } = landingData.faqSection;
 
   const filteredFaqs = useMemo(() => {
     return faqs.filter((faq) => {
@@ -72,7 +65,7 @@ export function FaqSection() {
 
             {/* Categories */}
             <div className="mb-6 md:mb-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-              {categories.map((category) => (
+              {faqCategories.map((category) => (
                 <Button
                   key={category}
                   variant={selectedCategory === category ? "default" : "outline"}
