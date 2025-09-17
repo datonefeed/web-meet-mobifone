@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import landingData from "@/mocks/landing-data.json";
 
@@ -13,7 +13,8 @@ interface Testimonial {
 }
 
 export function ShuffleCards() {
-  const [cards, setCards] = useState<Testimonial[]>(landingData.testimonials);
+  const [cards, setCards] = useState<Testimonial[]>(landingData.testimonialsSection);
+  const [isAutoShuffling, setIsAutoShuffling] = useState(false);
 
   const handleDragEnd = (
     event: MouseEvent | TouchEvent | PointerEvent,
@@ -21,16 +22,32 @@ export function ShuffleCards() {
   ) => {
     const distance = Math.sqrt(info.offset.x ** 2 + info.offset.y ** 2);
     if (distance > 120) {
-      setCards((prev) => {
-        const newCards = [...prev];
-        const firstCard = newCards.shift();
-        if (firstCard) {
-          newCards.push(firstCard);
-        }
-        return newCards;
-      });
+      shuffleCards();
     }
   };
+
+  const shuffleCards = useCallback(() => {
+    setCards((prev) => {
+      const newCards = [...prev];
+      const firstCard = newCards.shift();
+      if (firstCard) {
+        newCards.push(firstCard);
+      }
+      return newCards;
+    });
+  }, []);
+
+  const handleAutoShuffle = useCallback(() => {
+    if (isAutoShuffling) return;
+
+    setIsAutoShuffling(true);
+    shuffleCards();
+
+    // Reset animation state after animation completes
+    setTimeout(() => {
+      setIsAutoShuffling(false);
+    }, 600);
+  }, [isAutoShuffling, shuffleCards]);
 
   const getCardPosition = (index: number) => {
     if (index < 3) {
@@ -52,6 +69,44 @@ export function ShuffleCards() {
 
   return (
     <div className="relative h-[400px] flex items-center justify-center">
+      <button
+        onClick={handleAutoShuffle}
+        disabled={isAutoShuffling}
+        className="absolute rounded-full bottom-0 lg:right-56 z-40 bg-gradient-to-r bg-transparent border-white/30 hover:bg-gray-500 border-white disabled:from-gray-400 disabled:to-gray-500 text-white px-4 py-2 font-medium shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 disabled:cursor-not-allowed disabled:scale-100"
+      >
+        {isAutoShuffling ? (
+          <span className="flex items-center gap-2">
+            <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+                fill="none"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+          </span>
+        ) : (
+          <span className="flex items-center gap-2">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
+            </svg>
+          </span>
+        )}
+      </button>
+
       <AnimatePresence>
         {cards.slice(0, Math.min(6, cards.length)).map((testimonial, index) => {
           const position = getCardPosition(index);
@@ -60,7 +115,7 @@ export function ShuffleCards() {
             <motion.div
               key={testimonial.id}
               className="absolute w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-96 cursor-grab active:cursor-grabbing"
-              drag={index === 0}
+              drag={index === 0 && !isAutoShuffling}
               dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
               dragElastic={0.4}
               onDragEnd={index === 0 ? handleDragEnd : undefined}
@@ -68,9 +123,17 @@ export function ShuffleCards() {
               animate={{
                 opacity: index < 4 ? 1 : 0.7 - (index - 4) * 0.15,
                 ...position,
+                ...(isAutoShuffling && index === 0
+                  ? { x: position.x + 150, rotate: position.rotate + 15 }
+                  : {}),
               }}
               exit={{ opacity: 0, scale: 0.8, y: 100 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 25,
+                ...(isAutoShuffling ? { duration: 0.4 } : {}),
+              }}
               style={{ zIndex: cards.length - index }}
             >
               {/* Glass Card */}
