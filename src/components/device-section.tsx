@@ -28,13 +28,9 @@ export function DeviceSection() {
         {/* Ảnh với hiệu ứng phóng to */}
         <div className="items-center">
           <motion.div
-            initial={{ y: 50, opacity: 0, scale: 0.8 }} // ảnh nhỏ và mờ ban đầu
-            animate={
-              isInView
-                ? { y: 0, opacity: 1, scale: 1 } // khi hiện thì phóng to dần về scale = 1
-                : { y: 50, opacity: 0, scale: 0.8 }
-            }
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} // mượt mà
+            initial={{ y: 50, opacity: 0, scale: 0.8 }}
+            animate={isInView ? { y: 0, opacity: 1, scale: 1 } : { y: 50, opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-center"
           >
             <img

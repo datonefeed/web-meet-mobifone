@@ -1,0 +1,11 @@
+{
+  "Home": {
+    "title": "Welcome to the Museum",
+    "description": "Discover the history of the Hanoi Police Force"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  }
+}
