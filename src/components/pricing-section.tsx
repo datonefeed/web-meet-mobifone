@@ -21,7 +21,7 @@ export function PricingSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const { title, plans } = landingData.pricing;
+  const { plans } = landingData.pricingSection;
 
   return (
     <section id="pricing" ref={ref} className="py-20 bg-gray-100">
@@ -32,7 +32,7 @@ export function PricingSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{title}</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Bảng giá và gói dịch vụ</h1>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
