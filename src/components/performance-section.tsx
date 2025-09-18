@@ -4,6 +4,7 @@ import { motion, Variants, useInView } from "framer-motion";
 import Image from "next/image";
 import landingData from "@/mocks/landing-data.json";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -35,6 +36,7 @@ const floatVariants: Variants = {
 
 export default function PerformanceSection() {
   const { awards, partners } = landingData.performanceSection;
+  const t = useTranslations("PerformanceSection");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -79,8 +81,7 @@ export default function PerformanceSection() {
                 transition={{ delay: 0.5 }}
                 className="text-lg leading-relaxed"
               >
-                Khách hàng của Meet cảm thấy rất tự tin rằng các cuộc họp của họ được an toàn và bảo
-                mật.
+                {t("stats.description")}
               </motion.p>
             </motion.div>
           </motion.div>
@@ -118,12 +119,8 @@ export default function PerformanceSection() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ delay: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Đối tác - Khách hàng</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Meet phù hợp với tất cả các doanh nghiệp mà không giới hạn quy mô, có hệ thống văn
-                phòng đại diện rải rác hoặc có nhu cầu họp nội bộ, họp đối tác và doanh nghiệp có
-                nhu cầu thực hiện Webinar, thuyết trình, hội thảo...
-              </p>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t("partners.title")}</h2>
+              <p className="text-gray-600 leading-relaxed">{t("partners.description")}</p>
             </motion.div>
 
             <motion.div variants={containerVariants} className="grid grid-cols-3 gap-6">

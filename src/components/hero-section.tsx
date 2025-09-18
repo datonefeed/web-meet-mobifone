@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { PictureTiltCard } from "./picture-tilt-card";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations("HeroSection");
+
   return (
     <section
       id="home"
@@ -21,12 +24,12 @@ export function HeroSection() {
             className="text-white"
           >
             <h1 className="text-4xl lg:text-4xl font-bold mb-6 text-balance">
-              Nền tảng{" "}
-              <span className="text-primary bg-clip-text bg-gradient-to-r">họp trực tuyến</span>
+              {t("title")}{" "}
+              <span className="text-primary bg-clip-text bg-gradient-to-r">
+                {t("titleHighlight")}
+              </span>
             </h1>
-            <p className="text-base text-gray-300 mb-8 text-pretty">
-              MEET mang lại trải nghiệm dễ dàng, bảo mật và không giới hạn
-            </p>
+            <p className="text-base text-gray-300 mb-8 text-pretty">{t("description")}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button
@@ -35,18 +38,18 @@ export function HeroSection() {
                 className="border-white/30 text-white hover:bg-primary hover:text-white text-base px-4 py-3 bg-white/10 rounded-full"
               >
                 <Play className="mr-2 h-5 w-5" />
-                Đăng ký dùng thử
+                {t("buttons.trial")}
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white/30 text-white hover:bg-primary hover:text-white text-base px-4 py-3 bg-white/10 rounded-full"
               >
-                Chính sách và bảng giá
+                {t("buttons.pricing")}
               </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-4  ">
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
               {/* Google Play */}
               <Button
                 variant="secondary"
@@ -55,11 +58,11 @@ export function HeroSection() {
                 <img
                   src="./images/google_play-icon.png"
                   className="h-8 w-8 mr-3"
-                  alt="Google Play"
+                  alt={t("images.googlePlay.alt")}
                 />
                 <div className="flex flex-col items-start leading-tight">
-                  <span className="text-xs">GET IT ON</span>
-                  <span className="text-lg font-semibold">Google Play</span>
+                  <span className="text-xs">{t("download.googlePlay.text")}</span>
+                  <span className="text-lg font-semibold">{t("download.googlePlay.label")}</span>
                 </div>
               </Button>
 
@@ -68,23 +71,31 @@ export function HeroSection() {
                 variant="secondary"
                 className="flex items-center bg-white hover:bg-white/80 text-black border-0 pr-8 py-6 rounded-lg"
               >
-                <img src="./images/apple-icon.png" className="h-9 w-8 mr-3" alt="App Store" />
+                <img
+                  src="./images/apple-icon.png"
+                  className="h-9 w-8 mr-3"
+                  alt={t("images.appStore.alt")}
+                />
                 <div className="flex flex-col items-start leading-tight">
-                  <span className="text-xs">Download on the</span>
-                  <span className="text-lg font-semibold">App Store</span>
+                  <span className="text-xs">{t("download.appStore.text")}</span>
+                  <span className="text-lg font-semibold">{t("download.appStore.label")}</span>
                 </div>
               </Button>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              {/* Microsoft */}
+              {/* Windows */}
               <Button
                 variant="secondary"
                 className="flex items-center bg-white hover:bg-white/80 text-black border-0 pr-14 py-6 rounded-lg"
               >
-                <img src="./images/window-icon.png" className="h-8 w-8 mr-3" alt="Google Play" />
+                <img
+                  src="./images/window-icon.png"
+                  className="h-8 w-8 mr-3"
+                  alt={t("images.windows.alt")}
+                />
                 <div className="flex flex-col items-start leading-tight">
-                  <span className="text-xs">GET IT ON</span>
-                  <span className="text-lg font-semibold">Windows</span>
+                  <span className="text-xs">{t("download.windows.text")}</span>
+                  <span className="text-lg font-semibold">{t("download.windows.label")}</span>
                 </div>
               </Button>
 
@@ -93,10 +104,14 @@ export function HeroSection() {
                 variant="secondary"
                 className="flex items-center bg-white hover:bg-white/80 text-black border-0 pr-8 py-6 rounded-lg"
               >
-                <img src="./images/apple-icon.png" className="h-9 w-8 mr-3" alt="App Store" />
+                <img
+                  src="./images/apple-icon.png"
+                  className="h-9 w-8 mr-3"
+                  alt={t("images.macOs.alt")}
+                />
                 <div className="flex flex-col items-start leading-tight">
-                  <span className="text-xs">Download on the</span>
-                  <span className="text-lg font-semibold">MacOs</span>
+                  <span className="text-xs">{t("download.macOs.text")}</span>
+                  <span className="text-lg font-semibold">{t("download.macOs.label")}</span>
                 </div>
               </Button>
             </div>
@@ -110,7 +125,7 @@ export function HeroSection() {
           >
             <PictureTiltCard
               src="/images/landing_page_header_right.png"
-              alt="Forest path"
+              alt={t("images.heroImage.alt")}
               className="mx-auto"
             />
           </motion.div>

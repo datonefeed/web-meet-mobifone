@@ -2,10 +2,16 @@
 
 import { motion, Variants, useInView } from "framer-motion";
 import { useRef } from "react";
-import landingData from "@/mocks/landing-data.json";
+import { useTranslations } from "next-intl";
 
 export function FeaturesSection() {
-  const features = landingData.featuresSection.features;
+  const t = useTranslations("FeaturesSection");
+  const features = t.raw("features") as {
+    number: number;
+    title: string;
+    description: string;
+    bgColor: string;
+  }[];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -40,12 +46,8 @@ export function FeaturesSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 text-balance">
-            Ưu điểm vượt trội của Meet
-          </h1>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto text-pretty">
-            Cùng nhau gặt hái nhiều hơn – mọi lúc, mọi nơi – bằng phần mềm họp trực tuyến Meet
-          </p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4 text-balance">{t("title")}</h1>
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto text-pretty">{t("description")}</p>
         </motion.div>
 
         <motion.div

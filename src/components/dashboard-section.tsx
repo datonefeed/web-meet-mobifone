@@ -4,11 +4,20 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import landingData from "@/mocks/landing-data.json";
+import { useTranslations } from "next-intl";
 
 export function DashboardSection() {
-  const { features } = landingData.dashboardSection;
-  const [activeFeature, setActiveFeature] = useState("screen-share");
+  const t = useTranslations("DashboardSection");
+
+  const features = t.raw("features") as {
+    id: string;
+    label: string;
+    title: string;
+    description: string;
+    image: string;
+  }[];
+
+  const [activeFeature, setActiveFeature] = useState(features[1].id);
   const currentFeature = features.find((f) => f.id === activeFeature) || features[1];
 
   return (

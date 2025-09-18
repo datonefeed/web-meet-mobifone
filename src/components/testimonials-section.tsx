@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ShuffleCards } from "./shuffle-cards";
+import { useTranslations } from "next-intl";
 
 export function TestimonialsSection() {
+  const t = useTranslations("TestimonialsSection");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -25,11 +27,13 @@ export function TestimonialsSection() {
             className="text-center lg:text-left space-y-4"
           >
             <h1 className="text-3xl md:text-4xl font-bold text-white leading-snug">
-              Khách hàng đã nói gì về <br />
-              <span className="text-4xl md:text-6xl font-extrabold text-primary">Meet</span>
+              {t("title")} <br />
+              <span className="text-4xl md:text-6xl font-extrabold text-primary">
+                {t("titleHighlight")}
+              </span>
             </h1>
             <p className="text-base md:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0">
-              Lắng nghe trải nghiệm của khách hàng tin dùng sản phẩm.
+              {t("description")}
             </p>
           </motion.div>
 

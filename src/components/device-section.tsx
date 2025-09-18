@@ -3,29 +3,28 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export function DeviceSection() {
+  const t = useTranslations("DeviceSection");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
     <section id="device-section" ref={ref} className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        {/* Tiêu đề */}
+        {/* Title */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16 max-w-6xl mx-auto"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Tối ưu trên mọi thiết bị</h1>
-          <span className="text-base max-w-3xl">
-            Nền tảng Meet hỗ trợ hầu hết các thiết bị đầu cuối từ di động, máy tính bảng, laptop,
-            PC,… trên các hệ điều hành phổ biến như Windows/ iOS/ Android.
-          </span>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t("title")}</h1>
+          <span className="text-base max-w-3xl">{t("description")}</span>
         </motion.div>
 
-        {/* Ảnh với hiệu ứng phóng to */}
+        {/* Image */}
         <div className="items-center">
           <motion.div
             initial={{ y: 50, opacity: 0, scale: 0.8 }}
@@ -35,7 +34,7 @@ export function DeviceSection() {
           >
             <img
               src="/images/landing_page_optimal_device_bottom.png"
-              alt="optimal device"
+              alt={t("images.optimalDevice.alt")}
               className="mx-auto"
             />
           </motion.div>

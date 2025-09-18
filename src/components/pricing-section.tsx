@@ -5,36 +5,36 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import landingData from "@/mocks/landing-data.json";
-
-const PlayIcon = () => (
-  <div className="w-12 h-12 group-hover:bg-white bg-blue-500/15 rounded-xl flex items-center justify-center transition-all duration-300">
-    <img
-      src="/images/icon_service-pack.png"
-      alt="Service pack icon"
-      className="w-8 h-8 object-contain"
-    />
-  </div>
-);
+import { useTranslations } from "next-intl";
 
 export function PricingSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const t = useTranslations("PricingSection");
 
-  const { plans } = landingData.pricingSection;
+  const plans = t.raw("plans") as Array<{
+    name: string;
+    title: string;
+    price: string;
+    period?: string;
+    features: string[];
+    buttonText: string;
+  }>;
 
   return (
     <section id="pricing" ref={ref} className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
+        {/* Section title */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Bảng giá và gói dịch vụ</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t("title")}</h1>
         </motion.div>
 
+        {/* Pricing cards */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
@@ -44,8 +44,15 @@ export function PricingSection() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="relative bg-white rounded-2xl p-8 shadow-lg h-full flex flex-col group hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-600 transition-all duration-300 cursor-pointer"
             >
+              {/* Plan header */}
               <div className="flex items-center gap-4 mb-6">
-                <PlayIcon />
+                <div className="w-12 h-12 bg-blue-500/15 rounded-xl flex items-center justify-center">
+                  <img
+                    src="/images/icon_service-pack.png"
+                    alt="Service pack icon"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
                 <div className="group-hover:hidden">
                   <div className="text-sm text-gray-600">{plan.name}</div>
                   <div className="text-xl font-bold text-gray-900">{plan.title}</div>
@@ -56,6 +63,7 @@ export function PricingSection() {
                 </div>
               </div>
 
+              {/* Price */}
               <div className="mb-8">
                 <div className="flex items-baseline justify-center text-3xl font-bold text-gray-900 group-hover:text-white mb-2 transition-colors duration-300">
                   <p className="text-5xl ">
@@ -69,12 +77,14 @@ export function PricingSection() {
                 </div>
               </div>
 
+              {/* Included */}
               <div className="mb-4">
                 <h4 className="font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
-                  Bao gồm những gì
+                  {t("included")}
                 </h4>
               </div>
 
+              {/* Features */}
               <ul className="space-y-3 mb-8 flex-grow">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start">
@@ -88,6 +98,7 @@ export function PricingSection() {
                 ))}
               </ul>
 
+              {/* Button */}
               <Button
                 className="w-full mt-auto bg-blue-500 hover:bg-blue-600 group-hover:bg-white group-hover:text-blue-500 group-hover:hover:bg-gray-100 text-white rounded-full py-3 transition-all duration-300"
                 size="lg"

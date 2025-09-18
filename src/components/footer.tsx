@@ -3,10 +3,23 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import landingData from "@/mocks/landing-data.json";
+import { useTranslations } from "next-intl";
 
+interface Links {
+  url: string;
+  label: string;
+}
+interface App {
+  icon: string;
+  name: string;
+  subtitle: string;
+}
 export default function Footer() {
-  const footer = landingData.footer;
+  const t = useTranslations("Footer");
+
+  const contact = t.raw("contact"); // lấy object contact
+  const apps = t.raw("apps"); // lấy array apps
+  const bottom = t.raw("bottom"); // lấy object bottom
 
   return (
     <footer className="bg-slate-800 text-white py-12">
@@ -26,7 +39,7 @@ export default function Footer() {
             transition={{ delay: 0.2, duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <img src={footer.logo} alt="logo" className="mx-auto" />
+            <img src={t("logo")} alt="logo" className="mx-auto" />
           </motion.div>
 
           {/* Contact */}
@@ -37,13 +50,13 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-lg font-semibold mb-4">Liên hệ</h3>
+            <h3 className="text-lg font-semibold mb-4">{contact.title}</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 mt-1 text-gray-400 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
-                  <p className="text-gray-400 text-xs mb-1">Địa chỉ</p>
-                  {footer.contact.address.map((line, idx) => (
+                  <p className="text-gray-400 text-xs mb-1">{contact.addressLabel}</p>
+                  {contact.address.map((line: string, idx: number) => (
                     <p key={idx}>{line}</p>
                   ))}
                 </div>
@@ -52,16 +65,16 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 mt-1 text-gray-400 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
-                  <p className="text-gray-400 text-xs mb-1">Hotline</p>
-                  <p>{footer.contact.hotline}</p>
+                  <p className="text-gray-400 text-xs mb-1">{contact.hotlineLabel}</p>
+                  <p>{contact.hotline}</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 mt-1 text-gray-400 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
-                  <p className="text-gray-400 text-xs mb-1">Email</p>
-                  <p>{footer.contact.email}</p>
+                  <p className="text-gray-400 text-xs mb-1">{contact.emailLabel}</p>
+                  <p>{contact.email}</p>
                 </div>
               </div>
             </div>
@@ -75,9 +88,9 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-lg font-semibold mb-4">Tải app</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("downloadTitle")}</h3>
             <div className="space-y-3">
-              {footer.apps.map((app, idx) => (
+              {apps.map((app: App, idx: number) => (
                 <Button
                   key={idx}
                   variant="outline"
@@ -105,9 +118,9 @@ export default function Footer() {
           className="border-t border-gray-700 pt-6"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400">{footer.bottom.copyright}</p>
+            <p className="text-sm text-gray-400">{bottom.copyright}</p>
             <div className="flex flex-wrap gap-4 text-sm text-gray-400">
-              {footer.bottom.links.map((link, idx) => (
+              {bottom.links.map((link: Links, idx: number) => (
                 <a key={idx} href={link.url} className="hover:text-white transition-colors">
                   {link.label}
                 </a>
