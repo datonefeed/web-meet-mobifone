@@ -1,11 +1,315 @@
 {
-  "Home": {
-    "title": "Welcome to the Museum",
-    "description": "Discover the history of the Hanoi Police Force"
+  "Header": {
+    "logo": {
+      "alt": "Logo"
+    },
+    "nav": {
+      "home": "Home",
+      "features": "Features",
+      "feedback": "Feedback",
+      "pricing": "Pricing",
+      "faqs": "FAQs"
+    },
+    "auth": {
+      "login": "Login"
+    }
   },
-  "Navigation": {
-    "home": "Home",
-    "about": "About",
-    "contact": "Contact"
+  "HeroSection": {
+    "title": "The",
+    "titleHighlight": "online meeting platform",
+    "description": "MEET provides a seamless, secure, and unlimited experience",
+    "buttons": {
+      "trial": "Sign up for a trial",
+      "pricing": "Policies and pricing"
+    },
+    "download": {
+      "googlePlay": {
+        "text": "GET IT ON",
+        "label": "Google Play"
+      },
+      "appStore": {
+        "text": "Download on the",
+        "label": "App Store"
+      },
+      "windows": {
+        "text": "GET IT ON",
+        "label": "Windows"
+      },
+      "macOs": {
+        "text": "Download on the",
+        "label": "MacOs"
+      }
+    },
+    "images": {
+      "googlePlay": {
+        "alt": "Google Play"
+      },
+      "appStore": {
+        "alt": "App Store"
+      },
+      "windows": {
+        "alt": "Windows"
+      },
+      "macOs": {
+        "alt": "MacOs"
+      },
+      "heroImage": {
+        "alt": "Forest path"
+      }
+    }
+  },
+  "StatsSection": {
+    "users": {
+      "label": "Trusted users"
+    },
+    "meetings": {
+      "label": "Meetings per day"
+    }
+  },
+  "FeaturesSection": {
+    "title": "Outstanding advantages of Meet",
+    "description": "Achieve more together – anytime, anywhere – with Meet online meeting software",
+     "features": [
+      {
+        "number": "01",
+        "title": "Multi-point Connection",
+        "description": "Supports up to 1000 interactive endpoints and Webinar conferences with up to 10,000 participants",
+        "bgColor": "bg-orange-400"
+      },
+      {
+        "number": "02",
+        "title": "Integration",
+        "description": "Easily integrates with Polycom, Cisco, and other systems",
+        "bgColor": "bg-orange-400"
+      },
+      {
+        "number": "03",
+        "title": "Cross-platform",
+        "description": "Developed across multiple platforms: Web Application, Mobile App, and Tablet App",
+        "bgColor": "bg-blue-400"
+      },
+      {
+        "number": "04",
+        "title": "Advanced Features",
+        "description": "Includes features like AI integration, meeting summaries, live translation, and mobile call-in",
+        "bgColor": "bg-teal-500"
+      }
+    ]
+  },
+  "PerformanceSection": {
+    "stats": {
+      "description": "Meet's customers feel very confident that their meetings are safe and secure."
+    },
+    "partners": {
+      "title": "Partners - Customers",
+      "description": "Meet is suitable for all businesses regardless of size, with distributed office systems or needs for internal meetings, partner meetings, and businesses requiring webinars, presentations, or workshops..."
+    }
+  },
+  "DashboardSection": {
+    "features": [
+      {
+        "id": "video-call",
+        "label": "Video Call",
+        "title": "High-quality Video Calls",
+        "description": "Make HD video calls with support for multiple participants at once. This feature enables direct communication, creating a natural and effective connection in online meetings.",
+        "image": "/images/call-video-mock.png"
+      },
+      {
+        "id": "screen-share",
+        "label": "Screen Sharing",
+        "title": "Screen Sharing",
+        "description": "Users can share their screen with others in the meeting. This is very useful for presentations, showcasing information, software tutorials, or collaborating on shared documents.",
+        "image": "/images/share-screen-mock.png"
+      },
+      {
+        "id": "polls-qa",
+        "label": "Polls & Q&A",
+        "title": "Live Polls & Q&A",
+        "description": "Create live polls and interactive Q&A sessions. Participants can easily ask questions, vote, and share opinions, enhancing engagement during meetings.",
+        "image": "/images/opinion-poll-mock.png"
+      },
+      {
+        "id": "discussion",
+        "label": "Discussion",
+        "title": "Group Discussion",
+        "description": "Real-time chat and discussion features allow members to exchange ideas, share information, and collaborate effectively throughout the meeting.",
+        "image": "/images/disscusion-mock.png"
+      },
+      {
+        "id": "virtual-bg",
+        "label": "Virtual Background",
+        "title": "Professional Virtual Backgrounds",
+        "description": "Change your background with a variety of virtual options. This feature helps create a professional meeting environment while protecting personal workspace privacy.",
+        "image": "/images/virtual-bg-mock.png"
+      },
+      {
+        "id": "file-share",
+        "label": "File Sharing",
+        "title": "Document Sharing",
+        "description": "Quickly share and access documents, images, and files. Everyone in the meeting can view, download, and collaborate on shared resources.",
+        "image": "/images/share-file-mock.png"
+      },
+      {
+        "id": "recording",
+        "label": "Recording",
+        "title": "Meeting Recording",
+        "description": "Record the entire meeting for later review or for sharing with those who could not attend. This feature ensures that no important information is missed.",
+        "image": "/images/record-mock.png"
+      },
+      {
+        "id": "whiteboard",
+        "label": "Whiteboard",
+        "title": "Interactive Whiteboard",
+        "description": "Use a digital whiteboard to draw, take notes, and brainstorm together. This tool supports multiple people editing simultaneously, fostering creativity and effective collaboration.",
+        "image": "/images/white-boarding-mock.png"
+      }
+    ]
+  },
+  "PricingSection": {
+    "title": "Pricing and Service Packages",
+    "included": "What's included",
+    "images": {
+      "servicePack": {
+        "alt": "Service pack icon"
+      }
+    },
+  "plans": [
+    {
+      "name": "Basic",
+      "title": "Free",
+      "price": "Free plan",
+      "period": "",
+      "features": [
+        "Up to 100 participants per meeting",
+        "60-minute time limit",
+        "Chat and interaction",
+        "File sharing",
+        "Conference room"
+      ],
+      "buttonText": "Sign Up",
+      "popular": false
+    },
+    {
+      "name": "Advanced",
+      "title": "MM1",
+      "price": "120,000",
+      "period": "VND/month",
+      "features": [
+        "Up to 200 participants per meeting",
+        "24-hour time limit",
+        "Chat and interaction",
+        "File sharing",
+        "Recording",
+        "Whiteboard",
+        "Polling and Q&A",
+        "Meeting monitoring"
+      ],
+      "buttonText": "Buy Now",
+      "popular": false
+    },
+    {
+      "name": "Professional",
+      "title": "MM2",
+      "price": "150,000",
+      "period": "VND/month",
+      "features": [
+        "Up to 300 participants per meeting",
+        "24-hour time limit",
+        "Chat and interaction",
+        "File sharing",
+        "Recording",
+        "Whiteboard",
+        "Polling and Q&A",
+        "Meeting monitoring",
+        "Conference room"
+      ],
+      "buttonText": "Buy Now",
+      "popular": false
+    }
+  ]
+},
+"DeviceSection": {
+    "title": "Optimized for all devices",
+    "description": "The Meet platform supports most devices, including mobile phones, tablets, laptops, PCs, etc., on popular operating systems such as Windows, iOS, and Android.",
+    "images": {
+      "optimalDevice": {
+        "alt": "optimal device"
+      }
+    }
+  },
+  "TestimonialsSection": {
+    "title": "What customers say about",
+    "titleHighlight": "Meet",
+    "description": "Hear the experiences of customers who trust our product."
+  },
+  "FaqSection": {
+  "title": "Frequently Asked Questions",
+  "searchPlaceholder": "Search",
+  "noResults": "No questions match your search.",
+  "faqCategories": [
+    "All",
+    "Account Registration",
+    "Package Upgrade",
+    "Service Renewal",
+    "Troubleshooting/Errors"
+  ],
+  "faqs": [
+    {
+      "question": "What is the MEET online meeting platform?",
+      "answer": "MEET is an online meeting platform designed for individuals, businesses, and large corporations to conduct meetings and conferences across multiple locations. With MEET, companies can easily organize internal meetings or meet with partners and clients with just a few steps on the website, without the need to install complex software.",
+      "category": "Account Registration"
+    },
+    {
+      "question": "How can I download or access the MEET platform?",
+      "answer": "On computer/web:\nLog in directly via the website: meet.mobifone.vn\n\nOn mobile:\nFor iOS devices, go to the App Store. For Android devices, go to Google Play. Search for 'MobiFone Meet' and tap the download icon.",
+      "category": "Account Registration"
+    },
+    {
+      "question": "How to fix errors/no sound when joining a meeting on the web?",
+      "answer": "Step 1: On the homepage meet.mobifone.vn, click the lock icon on the URL bar\n\nStep 2: Select Site Settings\n\nStep 3: Find the Sound section and select Allow\n\nStep 4: Reload the homepage",
+      "category": "Troubleshooting/Errors"
+    },
+    {
+      "question": "How do I grant microphone and camera permissions on the app?",
+      "answer": "Step 1: On your mobile device, open Settings\n\nStep 2: Select the Meet app\n\nStep 3: Enable Microphone and Camera\n\nStep 4: Open the Meet app and start using it",
+      "category": "Troubleshooting/Errors"
+    }
+  ]
+},
+"Footer": {
+  "logo": "/images/logo-footer.png",
+  "contact": {
+    "address": [
+      "Thai Nam Building, 22D Dinh Nghia",
+      "Yen Hoa, Cau Giay, Hanoi"
+    ],
+    "hotline": "0936.110.116 ext 3",
+    "email": "smartoffice.ttcntt@mobifone.vn"
+  },
+  "apps": [
+    {
+      "name": "Google Play",
+      "subtitle": "GET IT ON",
+      "icon": "/images/google_play-icon.png"
+    },
+    {
+      "name": "App Store",
+      "subtitle": "Download on the",
+      "icon": "/images/apple-white-logo.png"
+    }
+  ],
+  "downloadTitle": "Download App",
+  "bottom": {
+    "copyright":
+      "Copyright© 2023 - MobiFone All Rights Reserved",
+    "links": [
+      { "label": "Terms of Use", "url": "#" },
+      { "label": "Privacy Policy", "url": "#" },
+      { "label": "Personal Data Protection Policy", "url": "#" }
+    ]
   }
+}
+
+
+
 }
