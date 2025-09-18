@@ -2,8 +2,10 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function StatsSection() {
+  const t = useTranslations("StatsSection");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -48,7 +50,7 @@ export function StatsSection() {
           >
             <div className="text-center">
               <div className="text-6xl font-bold text-primary mb-2">{users.toLocaleString()}+</div>
-              <div className="text-gray-600 text-lg">Người dùng tin tưởng</div>
+              <div className="text-gray-600 text-lg">{t("users.label")}</div>
             </div>
           </motion.div>
 
@@ -62,7 +64,7 @@ export function StatsSection() {
               <div className="text-6xl font-bold text-primary mb-2">
                 {meetings.toLocaleString()}+
               </div>
-              <div className="text-gray-600 text-lg">Cuộc họp mỗi ngày</div>
+              <div className="text-gray-600 text-lg">{t("meetings.label")}</div>
             </div>
           </motion.div>
         </div>
