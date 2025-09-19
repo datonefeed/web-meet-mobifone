@@ -70,31 +70,31 @@
     "title": "Ưu điểm vượt trội của Meet",
     "description": "Cùng nhau gặt hái nhiều hơn – mọi lúc, mọi nơi – bằng phần mềm họp trực tuyến Meet",
     "features": [
-        {
-          "number": "01",
-          "title": "Kết nối nhiều điểm cầu",
-          "description": "Hỗ trợ lên đến 1000 điểm cầu tương tác 2 chiều và hỗ trợ hội thảo Webinar lên đến 10.000 điểm cầu",
-          "bgColor": "bg-orange-400"
-        },
-        {
-          "number": "02",
-          "title": "Tích hợp",
-          "description": "Dễ dàng tích hợp với các hệ thống Polycom, Cisco...",
-          "bgColor": "bg-orange-400"
-        },
-        {
-          "number": "03",
-          "title": "Đa nền tảng",
-          "description": "Được phát triển trên đa nền tảng : Web Application , Mobile App, Tablet App",
-          "bgColor": "bg-blue-400"
-        },
-        {
-          "number": "04",
-          "title": "Tính năng nâng cao",
-          "description": "Xây dựng tính năng như tích hợp AI, Kết luận cuộc họp, Dịch thuật trực tuyến, gọi di động để vào cuộc họp",
-          "bgColor": "bg-teal-500"
-        }
-      ]
+      {
+        "number": "01",
+        "title": "Kết nối nhiều điểm cầu",
+        "description": "Hỗ trợ lên đến 1000 điểm cầu tương tác 2 chiều và hỗ trợ hội thảo Webinar lên đến 10.000 điểm cầu",
+        "bgColor": "bg-yellow-400"
+      },
+      {
+        "number": "02",
+        "title": "Tích hợp",
+        "description": "Dễ dàng tích hợp với các hệ thống Polycom, Cisco...",
+        "bgColor": "bg-orange-400"
+      },
+      {
+        "number": "03",
+        "title": "Đa nền tảng",
+        "description": "Được phát triển trên đa nền tảng : Web Application , Mobile App, Tablet App",
+        "bgColor": "bg-blue-400"
+      },
+      {
+        "number": "04",
+        "title": "Tính năng nâng cao",
+        "description": "Xây dựng tính năng như tích hợp AI, Kết luận cuộc họp, Dịch thuật trực tuyến, gọi di động để vào cuộc họp",
+        "bgColor": "bg-teal-500"
+      }
+    ]
   },
   "PerformanceSection": {
     "stats": {
@@ -246,7 +246,7 @@
     "title": "Câu hỏi thường gặp",
     "searchPlaceholder": "Tìm kiếm",
     "noResults": "Không tìm thấy câu hỏi nào phù hợp với tìm kiếm của bạn.",
-      "faqCategories": [
+    "faqCategories": [
       "Tất cả",
       "Đăng ký tài khoản",
       "Nâng cấp gói",
@@ -277,37 +277,44 @@
     ]
   },
   "Footer": {
-  "logo": "/images/logo-footer.png",
-  "contact": {
-    "address": [
-      "Toà Thái Nam, 22D Đường Định",
-      "Nghĩa, Yên Hoà, Cầu Giấy, Hà Nội"
-    ],
-    "hotline": "0936.110.116 nhánh 3",
-    "email": "smartoffice.ttcntt@mobifone.vn"
-  },
-  "apps": [
-    {
-      "name": "Google Play",
-      "subtitle": "TẢI XUỐNG TỪ",
-      "icon": "/images/google_play-icon.png"
+    "logo": "/images/logo-footer.png",
+    "contact": {
+      "address": [
+        "Toà Thái Nam, 22D Đường Định",
+        "Nghĩa, Yên Hoà, Cầu Giấy, Hà Nội"
+      ],
+      "hotline": "0936.110.116 nhánh 3",
+      "email": "smartoffice.ttcntt@mobifone.vn"
     },
-    {
-      "name": "App Store",
-      "subtitle": "Tải trên",
-      "icon": "/images/apple-white-logo.png"
+    "apps": [
+      {
+        "name": "Google Play",
+        "subtitle": "TẢI XUỐNG TỪ",
+        "icon": "/images/google_play-icon.png"
+      },
+      {
+        "name": "App Store",
+        "subtitle": "Tải trên",
+        "icon": "/images/apple-white-logo.png"
+      }
+    ],
+    "downloadTitle": "Tải app",
+    "bottom": {
+      "copyright": "Copyright© 2023 - MobiFone All Rights Reserved",
+      "links": [
+        {
+          "label": "Điều khoản sử dụng",
+          "url": "#"
+        },
+        {
+          "label": "Chính sách bảo mật",
+          "url": "#"
+        },
+        {
+          "label": "Chính sách bảo vệ thông tin cá nhân",
+          "url": "#"
+        }
+      ]
     }
-  ],
-   "downloadTitle": "Tải app",
-  "bottom": {
-    "copyright":
-      "Copyright© 2023 - MobiFone All Rights Reserved",
-    "links": [
-      { "label": "Điều khoản sử dụng", "url": "#" },
-      { "label": "Chính sách bảo mật", "url": "#" },
-      { "label": "Chính sách bảo vệ thông tin cá nhân", "url": "#" }
-    ]
   }
-}
-
 }

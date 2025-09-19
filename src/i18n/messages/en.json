@@ -69,12 +69,12 @@
   "FeaturesSection": {
     "title": "Outstanding advantages of Meet",
     "description": "Achieve more together – anytime, anywhere – with Meet online meeting software",
-     "features": [
+    "features": [
       {
         "number": "01",
         "title": "Multi-point Connection",
         "description": "Supports up to 1000 interactive endpoints and Webinar conferences with up to 10,000 participants",
-        "bgColor": "bg-orange-400"
+        "bgColor": "bg-yellow-400"
       },
       {
         "number": "02",
@@ -173,62 +173,62 @@
         "alt": "Service pack icon"
       }
     },
-  "plans": [
-    {
-      "name": "Basic",
-      "title": "Free",
-      "price": "Free plan",
-      "period": "",
-      "features": [
-        "Up to 100 participants per meeting",
-        "60-minute time limit",
-        "Chat and interaction",
-        "File sharing",
-        "Conference room"
-      ],
-      "buttonText": "Sign Up",
-      "popular": false
-    },
-    {
-      "name": "Advanced",
-      "title": "MM1",
-      "price": "120,000",
-      "period": "VND/month",
-      "features": [
-        "Up to 200 participants per meeting",
-        "24-hour time limit",
-        "Chat and interaction",
-        "File sharing",
-        "Recording",
-        "Whiteboard",
-        "Polling and Q&A",
-        "Meeting monitoring"
-      ],
-      "buttonText": "Buy Now",
-      "popular": false
-    },
-    {
-      "name": "Professional",
-      "title": "MM2",
-      "price": "150,000",
-      "period": "VND/month",
-      "features": [
-        "Up to 300 participants per meeting",
-        "24-hour time limit",
-        "Chat and interaction",
-        "File sharing",
-        "Recording",
-        "Whiteboard",
-        "Polling and Q&A",
-        "Meeting monitoring",
-        "Conference room"
-      ],
-      "buttonText": "Buy Now",
-      "popular": false
-    }
-  ]
-},
-"DeviceSection": {
+    "plans": [
+      {
+        "name": "Basic",
+        "title": "Free",
+        "price": "Free plan",
+        "period": "",
+        "features": [
+          "Up to 100 participants per meeting",
+          "60-minute time limit",
+          "Chat and interaction",
+          "File sharing",
+          "Conference room"
+        ],
+        "buttonText": "Sign Up",
+        "popular": false
+      },
+      {
+        "name": "Advanced",
+        "title": "MM1",
+        "price": "120,000",
+        "period": "VND/month",
+        "features": [
+          "Up to 200 participants per meeting",
+          "24-hour time limit",
+          "Chat and interaction",
+          "File sharing",
+          "Recording",
+          "Whiteboard",
+          "Polling and Q&A",
+          "Meeting monitoring"
+        ],
+        "buttonText": "Buy Now",
+        "popular": false
+      },
+      {
+        "name": "Professional",
+        "title": "MM2",
+        "price": "150,000",
+        "period": "VND/month",
+        "features": [
+          "Up to 300 participants per meeting",
+          "24-hour time limit",
+          "Chat and interaction",
+          "File sharing",
+          "Recording",
+          "Whiteboard",
+          "Polling and Q&A",
+          "Meeting monitoring",
+          "Conference room"
+        ],
+        "buttonText": "Buy Now",
+        "popular": false
+      }
+    ]
+  },
+  "DeviceSection": {
     "title": "Optimized for all devices",
     "description": "The Meet platform supports most devices, including mobile phones, tablets, laptops, PCs, etc., on popular operating systems such as Windows, iOS, and Android.",
     "images": {
@@ -243,73 +243,78 @@
     "description": "Hear the experiences of customers who trust our product."
   },
   "FaqSection": {
-  "title": "Frequently Asked Questions",
-  "searchPlaceholder": "Search",
-  "noResults": "No questions match your search.",
-  "faqCategories": [
-    "All",
-    "Account Registration",
-    "Package Upgrade",
-    "Service Renewal",
-    "Troubleshooting/Errors"
-  ],
-  "faqs": [
-    {
-      "question": "What is the MEET online meeting platform?",
-      "answer": "MEET is an online meeting platform designed for individuals, businesses, and large corporations to conduct meetings and conferences across multiple locations. With MEET, companies can easily organize internal meetings or meet with partners and clients with just a few steps on the website, without the need to install complex software.",
-      "category": "Account Registration"
-    },
-    {
-      "question": "How can I download or access the MEET platform?",
-      "answer": "On computer/web:\nLog in directly via the website: meet.mobifone.vn\n\nOn mobile:\nFor iOS devices, go to the App Store. For Android devices, go to Google Play. Search for 'MobiFone Meet' and tap the download icon.",
-      "category": "Account Registration"
-    },
-    {
-      "question": "How to fix errors/no sound when joining a meeting on the web?",
-      "answer": "Step 1: On the homepage meet.mobifone.vn, click the lock icon on the URL bar\n\nStep 2: Select Site Settings\n\nStep 3: Find the Sound section and select Allow\n\nStep 4: Reload the homepage",
-      "category": "Troubleshooting/Errors"
-    },
-    {
-      "question": "How do I grant microphone and camera permissions on the app?",
-      "answer": "Step 1: On your mobile device, open Settings\n\nStep 2: Select the Meet app\n\nStep 3: Enable Microphone and Camera\n\nStep 4: Open the Meet app and start using it",
-      "category": "Troubleshooting/Errors"
-    }
-  ]
-},
-"Footer": {
-  "logo": "/images/logo-footer.png",
-  "contact": {
-    "address": [
-      "Thai Nam Building, 22D Dinh Nghia",
-      "Yen Hoa, Cau Giay, Hanoi"
+    "title": "Frequently Asked Questions",
+    "searchPlaceholder": "Search",
+    "noResults": "No questions match your search.",
+    "faqCategories": [
+      "All",
+      "Account Registration",
+      "Package Upgrade",
+      "Service Renewal",
+      "Troubleshooting/Errors"
     ],
-    "hotline": "0936.110.116 ext 3",
-    "email": "smartoffice.ttcntt@mobifone.vn"
-  },
-  "apps": [
-    {
-      "name": "Google Play",
-      "subtitle": "GET IT ON",
-      "icon": "/images/google_play-icon.png"
-    },
-    {
-      "name": "App Store",
-      "subtitle": "Download on the",
-      "icon": "/images/apple-white-logo.png"
-    }
-  ],
-  "downloadTitle": "Download App",
-  "bottom": {
-    "copyright":
-      "Copyright© 2023 - MobiFone All Rights Reserved",
-    "links": [
-      { "label": "Terms of Use", "url": "#" },
-      { "label": "Privacy Policy", "url": "#" },
-      { "label": "Personal Data Protection Policy", "url": "#" }
+    "faqs": [
+      {
+        "question": "What is the MEET online meeting platform?",
+        "answer": "MEET is an online meeting platform designed for individuals, businesses, and large corporations to conduct meetings and conferences across multiple locations. With MEET, companies can easily organize internal meetings or meet with partners and clients with just a few steps on the website, without the need to install complex software.",
+        "category": "Account Registration"
+      },
+      {
+        "question": "How can I download or access the MEET platform?",
+        "answer": "On computer/web:\nLog in directly via the website: meet.mobifone.vn\n\nOn mobile:\nFor iOS devices, go to the App Store. For Android devices, go to Google Play. Search for 'MobiFone Meet' and tap the download icon.",
+        "category": "Account Registration"
+      },
+      {
+        "question": "How to fix errors/no sound when joining a meeting on the web?",
+        "answer": "Step 1: On the homepage meet.mobifone.vn, click the lock icon on the URL bar\n\nStep 2: Select Site Settings\n\nStep 3: Find the Sound section and select Allow\n\nStep 4: Reload the homepage",
+        "category": "Troubleshooting/Errors"
+      },
+      {
+        "question": "How do I grant microphone and camera permissions on the app?",
+        "answer": "Step 1: On your mobile device, open Settings\n\nStep 2: Select the Meet app\n\nStep 3: Enable Microphone and Camera\n\nStep 4: Open the Meet app and start using it",
+        "category": "Troubleshooting/Errors"
+      }
     ]
+  },
+  "Footer": {
+    "logo": "/images/logo-footer.png",
+    "contact": {
+      "address": [
+        "Thai Nam Building, 22D Dinh Nghia",
+        "Yen Hoa, Cau Giay, Hanoi"
+      ],
+      "hotline": "0936.110.116 ext 3",
+      "email": "smartoffice.ttcntt@mobifone.vn"
+    },
+    "apps": [
+      {
+        "name": "Google Play",
+        "subtitle": "GET IT ON",
+        "icon": "/images/google_play-icon.png"
+      },
+      {
+        "name": "App Store",
+        "subtitle": "Download on the",
+        "icon": "/images/apple-white-logo.png"
+      }
+    ],
+    "downloadTitle": "Download App",
+    "bottom": {
+      "copyright": "Copyright© 2023 - MobiFone All Rights Reserved",
+      "links": [
+        {
+          "label": "Terms of Use",
+          "url": "#"
+        },
+        {
+          "label": "Privacy Policy",
+          "url": "#"
+        },
+        {
+          "label": "Personal Data Protection Policy",
+          "url": "#"
+        }
+      ]
+    }
   }
-}
-
-
-
 }
