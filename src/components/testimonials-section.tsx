@@ -26,9 +26,9 @@ export function TestimonialsSection() {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left space-y-4"
           >
-            <h1 className="text-3xl md:text-4xl font-bold text-white leading-snug">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl md:text-4xl font-bold text-white leading-snug">
               {t("title")} <br />
-              <span className="text-4xl md:text-6xl font-extrabold text-primary">
+              <span className="text-2xl sm:text-3xl lg:text-4xl md:text-6xl font-extrabold text-primary">
                 {t("titleHighlight")}
               </span>
             </h1>

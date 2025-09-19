@@ -49,7 +49,9 @@ export function StatsSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="text-center">
-              <div className="text-6xl font-bold text-primary mb-2">{users.toLocaleString()}+</div>
+              <div className="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary mb-2">
+                {users.toLocaleString()}+
+              </div>
               <div className="text-gray-600 text-lg">{t("users.label")}</div>
             </div>
           </motion.div>
@@ -61,7 +63,7 @@ export function StatsSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="text-center">
-              <div className="text-6xl font-bold text-primary mb-2">
+              <div className="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary mb-2">
                 {meetings.toLocaleString()}+
               </div>
               <div className="text-gray-600 text-lg">{t("meetings.label")}</div>

@@ -63,7 +63,7 @@ export function DashboardSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold text-white mb-6 text-balance">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 text-balance">
               {currentFeature.title}
             </h1>
             <p className="text-slate-300 text-lg leading-relaxed">{currentFeature.description}</p>

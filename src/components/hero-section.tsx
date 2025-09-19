@@ -23,7 +23,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white"
           >
-            <h1 className="text-4xl lg:text-4xl font-bold mb-6 text-balance">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-balance">
               {t("title")}{" "}
               <span className="text-primary bg-clip-text bg-gradient-to-r">
                 {t("titleHighlight")}

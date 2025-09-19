@@ -71,7 +71,7 @@ export default function PerformanceSection() {
                 initial={{ scale: 0 }}
                 animate={isInView ? { scale: 1 } : { scale: 0 }}
                 transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-                className="text-7xl font-bold mb-4 w-auto"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 w-auto"
               >
                 99%
               </motion.div>
@@ -79,7 +79,7 @@ export default function PerformanceSection() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ delay: 0.5 }}
-                className="text-lg leading-relaxed"
+                className="text-base lg:text-lg leading-relaxed"
               >
                 {t("stats.description")}
               </motion.p>
@@ -119,7 +119,9 @@ export default function PerformanceSection() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ delay: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t("partners.title")}</h2>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                {t("partners.title")}
+              </h2>
               <p className="text-gray-600 leading-relaxed">{t("partners.description")}</p>
             </motion.div>
 

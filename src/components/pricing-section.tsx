@@ -31,7 +31,9 @@ export function PricingSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t("title")}</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {t("title")}
+          </h1>
         </motion.div>
 
         {/* Pricing cards */}
@@ -66,7 +68,7 @@ export function PricingSection() {
               {/* Price */}
               <div className="mb-8">
                 <div className="flex items-baseline justify-center text-3xl font-bold text-gray-900 group-hover:text-white mb-2 transition-colors duration-300">
-                  <p className="text-5xl ">
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                     {plan.price}
                     {plan.period && (
                       <span className="ml-1 text-xl font-normal text-gray-600 group-hover:text-white/80 transition-colors duration-300">

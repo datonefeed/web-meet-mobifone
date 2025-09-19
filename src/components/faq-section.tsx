@@ -50,7 +50,7 @@ export function FaqSection() {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-start mb-10 lg:mb-16"
           >
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl md:text-3xl font-bold text-gray-900 mb-6">
               {t("title")}
             </h1>
 
