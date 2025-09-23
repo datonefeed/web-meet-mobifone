@@ -2,35 +2,28 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Edit3, RotateCcw, AlertCircle } from "lucide-react";
-import MultilingualEditForm from "@/components/admin/multilingual-edit-form";
+import { Card } from "@/components/ui/card";
+import { Edit3, RotateCcw, AlertCircle, LayoutGrid } from "lucide-react";
+import FeaturesSectionEditForm from "@/components/admin/features-section-edit-form";
+import PricingSectionEditForm from "../../../../components/admin/pricing-section-edit-form";
+import FaqSectionEditForm from "../../../../components/admin/faq-section-edit-form";
+import DashboardSectionEditForm from "../../../../components/admin/dashboard-section-edit-form";
+import type { MultilingualData } from "@/types/content";
 
-type Feature = {
-  number: string;
-  title: string;
-  description: string;
-  bgColor: string;
-};
+type SectionKey = "features" | "dashboard" | "pricing" | "faq";
 
-type LanguageData = {
-  FeaturesSection: {
-    title: string;
-    description: string;
-    features: Feature[];
-  };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
-};
-
-type MultilingualData = {
-  vi: LanguageData;
-  en: LanguageData;
+const SECTION_LABELS: Record<SectionKey, string> = {
+  features: "Ưu điểm (Features)",
+  dashboard: "Bảng điều khiển (Dashboard)",
+  pricing: "Bảng giá (Pricing)",
+  faq: "Câu hỏi thường gặp (FAQ)",
 };
 
 export default function ContentManagement() {
   const [data, setData] = useState<MultilingualData | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [activeSection, setActiveSection] = useState<SectionKey>("features");
 
   useEffect(() => {
     loadData();
@@ -123,11 +116,68 @@ export default function ContentManagement() {
             <RotateCcw className="h-4 w-4 mr-2" />
             Tải lại
           </Button>
+          <Button onClick={saveData} disabled={saving} className="bg-green-600 hover:bg-green-700">
+            {saving ? "Đang lưu..." : "Lưu thay đổi"}
+          </Button>
         </div>
       </div>
 
-      {/* Multilingual Edit Form */}
-      <MultilingualEditForm data={data} onDataChange={setData} onSave={saveData} saving={saving} />
+      {/* Section selector */}
+      <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm p-4">
+        <div className="flex items-center gap-3 mb-3">
+          <LayoutGrid className="h-5 w-5 text-gray-700" />
+          <span className="text-sm font-medium text-gray-700">
+            Chọn phần (section) muốn chỉnh sửa
+          </span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {(Object.keys(SECTION_LABELS) as SectionKey[]).map((key) => (
+            <Button
+              key={key}
+              variant={activeSection === key ? "default" : "outline"}
+              onClick={() => setActiveSection(key)}
+              className={activeSection === key ? "" : "border-gray-300"}
+              size="sm"
+            >
+              {SECTION_LABELS[key]}
+            </Button>
+          ))}
+        </div>
+      </Card>
+
+      {/* Section Forms */}
+      {activeSection === "features" && (
+        <FeaturesSectionEditForm
+          data={data}
+          onDataChange={(newData: MultilingualData) => setData(newData)}
+          onSave={saveData}
+          saving={saving}
+        />
+      )}
+      {activeSection === "dashboard" && (
+        <DashboardSectionEditForm
+          data={data}
+          onDataChange={(newData: MultilingualData) => setData(newData)}
+          onSave={saveData}
+          saving={saving}
+        />
+      )}
+      {activeSection === "pricing" && (
+        <PricingSectionEditForm
+          data={data}
+          onDataChange={(newData: MultilingualData) => setData(newData)}
+          onSave={saveData}
+          saving={saving}
+        />
+      )}
+      {activeSection === "faq" && (
+        <FaqSectionEditForm
+          data={data}
+          onDataChange={(newData: MultilingualData) => setData(newData)}
+          onSave={saveData}
+          saving={saving}
+        />
+      )}
     </div>
   );
 }
