@@ -48,7 +48,7 @@ export function FeaturesSection() {
   return (
     <section id="features" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
-        {/* Tiêu đề section */}
+        {/* Section title */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -70,7 +70,13 @@ export function FeaturesSection() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <Carousel className="relative w-full max-w-6xl mx-auto">
+          <Carousel
+            className="relative w-full max-w-6xl mx-auto"
+            opts={{
+              align: "start",
+              dragFree: features.length >= 5,
+            }}
+          >
             <CarouselContent className="-ml-4">
               {features.map((feature, index) => (
                 <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/4">
@@ -83,7 +89,6 @@ export function FeaturesSection() {
                       transition: { type: "spring", stiffness: 300, damping: 20 },
                     }}
                   >
-                    {/* Icon/Number */}
                     <motion.div
                       className="mb-6 flex justify-center"
                       whileHover={{ rotate: [0, -10, 10, 0] }}
@@ -100,12 +105,10 @@ export function FeaturesSection() {
                       </div>
                     </motion.div>
 
-                    {/* Title */}
                     <h3 className="text-lg font-bold text-black group-hover:text-white mb-4 transition-colors duration-300">
                       {feature.title}
                     </h3>
 
-                    {/* Description */}
                     <p className="text-gray-600 group-hover:text-white leading-relaxed text-pretty transition-colors duration-300 flex-1">
                       {feature.description}
                     </p>
@@ -114,14 +117,17 @@ export function FeaturesSection() {
               ))}
             </CarouselContent>
 
-            {/* Nút điều hướng */}
-            <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 hidden sm:flex" />
-            <CarouselNext className="absolute top-1/2 -translate-y-1/2 hidden sm:flex" />
+            {features.length >= 5 && (
+              <>
+                <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 hidden sm:flex" />
+                <CarouselNext className="absolute top-1/2 -translate-y-1/2 hidden sm:flex" />
+              </>
+            )}
           </Carousel>
         </motion.div>
       </div>
 
-      {/* Hidden màu để tailwind không tree-shake */}
+      {/* Hidden colors để tailwind không tree-shake */}
       <div className="hidden">bg-orange-400 bg-blue-400 bg-teal-500</div>
     </section>
   );
