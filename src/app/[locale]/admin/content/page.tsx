@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Edit3, RotateCcw, AlertCircle, LayoutGrid } from "lucide-react";
+import { Edit3, RotateCcw, AlertCircle, LayoutGrid, Save } from "lucide-react";
 import FeaturesSectionEditForm from "@/components/admin/features-section-edit-form";
 import PricingSectionEditForm from "../../../../components/admin/pricing-section-edit-form";
 import FaqSectionEditForm from "../../../../components/admin/faq-section-edit-form";
 import DashboardSectionEditForm from "../../../../components/admin/dashboard-section-edit-form";
 import type { MultilingualData } from "@/types/content";
+import { useContentManagement } from "@/hooks/useContentManagement";
 
 type SectionKey = "features" | "dashboard" | "pricing" | "faq";
 
@@ -20,52 +21,8 @@ const SECTION_LABELS: Record<SectionKey, string> = {
 };
 
 export default function ContentManagement() {
-  const [data, setData] = useState<MultilingualData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
+  const { data, setData, loading, saving, loadData, saveData } = useContentManagement();
   const [activeSection, setActiveSection] = useState<SectionKey>("features");
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
-    try {
-      const response = await fetch("/api/admin/content");
-      const result = await response.json();
-      setData(result);
-    } catch (error) {
-      console.error("Error loading data:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const saveData = async () => {
-    if (!data) return;
-
-    setSaving(true);
-    try {
-      const response = await fetch("/api/admin/content", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        alert("Đã lưu thành công!");
-      } else {
-        alert("Có lỗi xảy ra khi lưu!");
-      }
-    } catch (error) {
-      console.error("Error saving data:", error);
-      alert("Có lỗi xảy ra khi lưu!");
-    } finally {
-      setSaving(false);
-    }
-  };
 
   if (loading) {
     return (
@@ -92,16 +49,16 @@ export default function ContentManagement() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-col lg:flex-row">
         <div className="flex items-center space-x-4">
           <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg">
             <Edit3 className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+            <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
               Quản lý nội dung đa ngôn ngữ
             </h1>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-sm lg:text-lg">
               Chỉnh sửa nội dung cho cả tiếng Việt và tiếng Anh
             </p>
           </div>
@@ -117,7 +74,8 @@ export default function ContentManagement() {
             Tải lại
           </Button>
           <Button onClick={saveData} disabled={saving} className="bg-green-600 hover:bg-green-700">
-            {saving ? "Đang lưu..." : "Lưu thay đổi"}
+            <Save className="h-4 w-4 mr-2" />
+            {saving ? "Đang lưu..." : "Lưu tất cả"}
           </Button>
         </div>
       </div>
