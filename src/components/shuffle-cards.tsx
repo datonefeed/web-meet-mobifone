@@ -2,6 +2,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import landingData from "@/mocks/landing-data.json";
+import { useTranslations } from "next-intl";
 
 interface Testimonial {
   id: number;
@@ -13,7 +14,9 @@ interface Testimonial {
 }
 
 export function ShuffleCards() {
-  const [cards, setCards] = useState<Testimonial[]>(landingData.testimonialsSection);
+  const t = useTranslations("TestimonialsSection");
+  const testimonials = t.raw("testimonials");
+  const [cards, setCards] = useState<Testimonial[]>(testimonials);
   const [isAutoShuffling, setIsAutoShuffling] = useState(false);
 
   const handleDragEnd = (
@@ -43,7 +46,6 @@ export function ShuffleCards() {
     setIsAutoShuffling(true);
     shuffleCards();
 
-    // Reset animation state after animation completes
     setTimeout(() => {
       setIsAutoShuffling(false);
     }, 600);

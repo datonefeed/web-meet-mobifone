@@ -6,44 +6,25 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Edit3, Save, Plus, Trash2, Languages, Globe } from "lucide-react";
+import type { MultilingualData } from "@/types/content";
+import type { Feature } from "@/types/content";
 
-type Feature = {
-  number: string;
-  title: string;
-  description: string;
-  bgColor: string;
-};
-
-type LanguageData = {
-  FeaturesSection: {
-    title: string;
-    description: string;
-    features: Feature[];
-  };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
-};
-
-type MultilingualData = {
-  vi: LanguageData;
-  en: LanguageData;
-};
-
-interface MultilingualEditFormProps {
+interface FeaturesSectionEditFormProps {
   data: MultilingualData;
   onDataChange: (newData: MultilingualData) => void;
   onSave: () => void;
   saving: boolean;
 }
 
-export default function MultilingualEditForm({
+export default function FeaturesSectionEditForm({
   data,
   onDataChange,
   onSave,
   saving,
-}: MultilingualEditFormProps) {
+}: FeaturesSectionEditFormProps) {
   const [editingFeature, setEditingFeature] = useState<number | null>(null);
   const [activeLanguage, setActiveLanguage] = useState<"vi" | "en">("vi");
+  const [lastAddedId, setLastAddedId] = useState<string | null>(null);
 
   const updateFeature = (
     index: number,
@@ -51,7 +32,7 @@ export default function MultilingualEditForm({
     value: string,
     language: "vi" | "en"
   ) => {
-    const newData = { ...data };
+    const newData: MultilingualData = JSON.parse(JSON.stringify(data));
     newData[language].FeaturesSection.features[index] = {
       ...newData[language].FeaturesSection.features[index],
       [field]: value,
@@ -64,7 +45,7 @@ export default function MultilingualEditForm({
     value: string,
     language: "vi" | "en"
   ) => {
-    const newData = { ...data };
+    const newData: MultilingualData = JSON.parse(JSON.stringify(data));
     newData[language].FeaturesSection[field] = value;
     onDataChange(newData);
   };
@@ -88,23 +69,23 @@ export default function MultilingualEditForm({
         bgColor: "bg-blue-400",
       };
 
-      const newData = { ...data };
+      const newData: MultilingualData = JSON.parse(JSON.stringify(data));
       newData.vi.FeaturesSection.features.push(newViFeature);
       newData.en.FeaturesSection.features.push(newEnFeature);
       onDataChange(newData);
-      alert("Đã thêm tính năng mới. Vui lòng chỉnh sửa thông tin và lưu lại.");
+      setLastAddedId(newNumber);
+
+      setTimeout(() => setLastAddedId(null), 1500);
     } catch (error) {
-      alert("Đã xảy ra lỗi khi thêm tính năng mới.");
       console.error("Error adding new feature:", error);
     }
   };
 
   const removeFeature = (index: number) => {
-    const newData = { ...data };
+    const newData: MultilingualData = JSON.parse(JSON.stringify(data));
     newData.vi.FeaturesSection.features.splice(index, 1);
     newData.en.FeaturesSection.features.splice(index, 1);
 
-    // Cập nhật lại số thứ tự
     newData.vi.FeaturesSection.features.forEach((feature, i) => {
       feature.number = String(i + 1).padStart(2, "0");
     });
@@ -142,6 +123,7 @@ export default function MultilingualEditForm({
               variant={activeLanguage === "vi" ? "default" : "outline"}
               onClick={() => setActiveLanguage("vi")}
               className="flex items-center gap-2"
+              size="sm"
             >
               🇻🇳 Tiếng Việt
             </Button>
@@ -149,6 +131,7 @@ export default function MultilingualEditForm({
               variant={activeLanguage === "en" ? "default" : "outline"}
               onClick={() => setActiveLanguage("en")}
               className="flex items-center gap-2"
+              size="sm"
             >
               🇺🇸 English
             </Button>
@@ -168,7 +151,7 @@ export default function MultilingualEditForm({
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Tiêu đề Section</label>
             <Input
-              value={data[activeLanguage]?.FeaturesSection?.title || ""}
+              value={data[activeLanguage].FeaturesSection.title || ""}
               onChange={(e) => updateSectionInfo("title", e.target.value, activeLanguage)}
               placeholder={activeLanguage === "vi" ? "Nhập tiêu đề section" : "Enter section title"}
             />
@@ -176,7 +159,7 @@ export default function MultilingualEditForm({
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Mô tả Section</label>
             <Textarea
-              value={data[activeLanguage]?.FeaturesSection?.description || ""}
+              value={data[activeLanguage].FeaturesSection.description || ""}
               onChange={(e) => updateSectionInfo("description", e.target.value, activeLanguage)}
               placeholder={
                 activeLanguage === "vi" ? "Nhập mô tả section" : "Enter section description"
@@ -190,7 +173,7 @@ export default function MultilingualEditForm({
       {/* Features Section */}
       <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-col md:flex-row">
             <div>
               <CardTitle className="text-xl font-bold text-gray-900">
                 Danh sách tính năng - {activeLanguage === "vi" ? "Tiếng Việt" : "English"}
@@ -214,17 +197,18 @@ export default function MultilingualEditForm({
                 className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/25"
               >
                 <Save className="h-4 w-4 mr-2" />
-                {saving ? "Đang lưu..." : "Lưu tất cả"}
+                {saving ? "Đang lưu..." : "Lưu thay đổi"}
               </Button>
             </div>
           </div>
         </CardHeader>
         <CardContent>
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col-reverse">
             {currentFeatures.map((feature, index) => (
               <div
-                key={index}
-                className="group p-6 border-2 border-gray-200 hover:border-blue-300 rounded-xl bg-gradient-to-br from-white to-gray-50 hover:shadow-lg transition-all duration-300"
+                key={feature.number}
+                className={`group p-6 border-2 border-gray-200 hover:border-blue-300 rounded-xl bg-gradient-to-br from-white to-gray-50 hover:shadow-lg transition-all duration-300 transition 
+    ${lastAddedId === feature.number ? "animate-pulse border-primary bg-green-50" : ""}`}
               >
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center space-x-3">

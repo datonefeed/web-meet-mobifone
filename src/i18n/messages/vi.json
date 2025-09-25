@@ -93,6 +93,12 @@
         "title": "Tính năng nâng cao",
         "description": "Xây dựng tính năng như tích hợp AI, Kết luận cuộc họp, Dịch thuật trực tuyến, gọi di động để vào cuộc họp",
         "bgColor": "bg-teal-500"
+      },
+      {
+        "number": "05",
+        "title": "Tính năng mới",
+        "description": "Mô tả tính năng",
+        "bgColor": "bg-blue-400"
       }
     ]
   },
@@ -240,7 +246,49 @@
   "TestimonialsSection": {
     "title": "Khách hàng đã nói gì về",
     "titleHighlight": "Meet",
-    "description": "Lắng nghe trải nghiệm của khách hàng tin dùng sản phẩm."
+    "description": "Lắng nghe trải nghiệm của khách hàng tin dùng sản phẩm.",
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Dư Tú Anh",
+        "title": "CEO",
+        "company": "Chân Trời Mới",
+        "content": "MEET đã thực sự giúp công việc của chúng tôi trở nên dễ dàng hơn. Giao diện đơn giản và tính ổn định tuyệt vời đã tạo nên những cuộc họp hiệu quả mà không cần lo lắng về kết nối.",
+        "avatar": "/images/professional-woman-avatar.png"
+      },
+      {
+        "id": 2,
+        "name": "Adrian Y.",
+        "title": "Trưởng nhóm Marketing Sản phẩm",
+        "company": "Meta",
+        "content": "Chúng tôi đã sử dụng MEET cho việc đào tạo và hỗ trợ khách hàng. Khả năng tùy chỉnh và tính bảo mật cao khiến chúng tôi hoàn toàn yên tâm khi sử dụng nền tảng này.",
+        "avatar": "/images/gia_cat_luong.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Devin R.",
+        "title": "Trưởng nhóm Marketing tăng trưởng",
+        "company": "OpenAI",
+        "content": "Không thể tin được đây là miễn phí. Nếu MEET có giá 5.000 USD một tháng, nó vẫn xứng đáng từng đồng. Tôi thậm chí còn muốn đặt tên con mình theo tên MEET.",
+        "avatar": "/images/professional-man-avatar.png"
+      },
+      {
+        "id": 4,
+        "name": "Sarah M.",
+        "title": "CTO",
+        "company": "FutureTech",
+        "content": "MEET đã thay đổi hoàn toàn cách chúng tôi cộng tác. Mượt mà, an toàn và có khả năng mở rộng cho đội ngũ ngày càng phát triển.",
+        "avatar": "/images/professional-woman-avatar.png"
+      },
+      {
+        "id": 5,
+        "name": "John D.",
+        "title": "Quản lý Dự án",
+        "company": "InnovateX",
+        "content": "Sự dễ sử dụng và độ tin cậy của MEET đã khiến nó trở thành nền tảng họp trực tuyến số một mà chúng tôi lựa chọn.",
+        "avatar": "/images/professional-man-avatar.png"
+      }
+    ]
   },
   "FaqSection": {
     "title": "Câu hỏi thường gặp",

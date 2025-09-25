@@ -18,9 +18,9 @@ export function FaqSection() {
   const isInView = useInView(ref, { once: true });
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(t("faqCategories.0")); // "Tất cả" or "All"
+  const [selectedCategory, setSelectedCategory] = useState(t("faqCategories.0"));
 
-  const faqs = t.raw("faqs"); // lấy mảng JSON thô từ file dịch
+  const faqs = t.raw("faqs");
   const faqCategories = t.raw("faqCategories");
 
   const filteredFaqs = useMemo(() => {
