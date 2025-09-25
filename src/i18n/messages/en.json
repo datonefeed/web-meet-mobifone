@@ -93,6 +93,12 @@
         "title": "Advanced Features",
         "description": "Includes features like AI integration, meeting summaries, live translation, and mobile call-in",
         "bgColor": "bg-teal-500"
+      },
+      {
+        "number": "05",
+        "title": "New Feature",
+        "description": "Feature description",
+        "bgColor": "bg-blue-400"
       }
     ]
   },
@@ -240,7 +246,49 @@
   "TestimonialsSection": {
     "title": "What customers say about",
     "titleHighlight": "Meet",
-    "description": "Hear the experiences of customers who trust our product."
+    "description": "Hear the experiences of customers who trust our product.",
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Du Tu Anh",
+        "title": "CEO",
+        "company": "New Horizon",
+        "content": "MEET has truly made our work much easier. The simple interface and great stability have created excellent meetings without worrying about the connection.",
+        "avatar": "/images/professional-woman-avatar.png"
+      },
+      {
+        "id": 2,
+        "name": "Adrian Y.",
+        "title": "Product Marketing Lead",
+        "company": "Meta",
+        "content": "We have been using MEET for training and customer support. Its customization options and strong security make us feel completely confident when using this platform.",
+        "avatar": "/images/gia_cat_luong.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Devin R.",
+        "title": "Growth Marketing Lead",
+        "company": "OpenAI",
+        "content": "I can’t believe this is free. Even if MEET cost $5,000 a month, it would still be worth every penny. I’m even considering naming my next child after MEET.",
+        "avatar": "/images/professional-man-avatar.png"
+      },
+      {
+        "id": 4,
+        "name": "Sarah M.",
+        "title": "CTO",
+        "company": "FutureTech",
+        "content": "MEET has transformed the way we collaborate. Smooth, secure, and scalable for our growing team.",
+        "avatar": "/images/professional-woman-avatar.png"
+      },
+      {
+        "id": 5,
+        "name": "John D.",
+        "title": "Project Manager",
+        "company": "InnovateX",
+        "content": "The ease of use and reliability of MEET have made it our go-to platform for all virtual meetings.",
+        "avatar": "/images/professional-man-avatar.png"
+      }
+    ]
   },
   "FaqSection": {
     "title": "Frequently Asked Questions",
