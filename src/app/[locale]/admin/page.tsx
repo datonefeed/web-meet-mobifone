@@ -73,7 +73,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats Cards */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
             </Card>
           );
         })}
-      </div> */}
+      </div>
 
       {/* Quick Actions */}
       <Card className="mb-8 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
@@ -138,14 +138,14 @@ export default function AdminDashboard() {
       </Card>
 
       {/* Recent Activity */}
-      {/* <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+      <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-gray-900">Hoạt động gần đây</CardTitle>
           <CardDescription className="text-gray-600">Lịch sử thay đổi nội dung</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            <div className="group flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-blue-50/50 rounded-xl hover:from-blue-100 hover:to-primary/50 transition-all duration-300 border border-primary/20">
+            <div className="group flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-blue-50/50 rounded-xl hover:bg-primary/20 cursor-pointer transition-all duration-300 border border-primary/20">
               <div className="p-3 bg-primary rounded-xl shadow-md group-hover:scale-110 transition-transform duration-300">
                 <FileText className="h-5 w-5 text-white" />
               </div>
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
                 <p className="text-sm text-gray-600">2 ngày trước</p>
               </div>
             </div>
-            <div className="group flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-blue-50/50from-blue-50 to-blue-50/50 rounded-xl hover:from-green-100 hover:to-primary/50 transition-all duration-300 border border-primary/20">
+            <div className="group flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-blue-50/50from-blue-50 to-blue-50/50 rounded-xl hover:bg-primary/20 cursor-pointer transition-all duration-300 border border-primary/20">
               <div className="p-3 bg-primary rounded-xl shadow-md group-hover:scale-110 transition-transform duration-300">
                 <Edit3 className="h-5 w-5 text-white" />
               </div>
@@ -165,7 +165,7 @@ export default function AdminDashboard() {
                 <p className="text-sm text-gray-600">5 ngày trước</p>
               </div>
             </div>
-            <div className="group flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-blue-50/50 rounded-xl hover:from-orange-100 hover:to-primary/50 transition-all duration-300 border border-primary/20">
+            <div className="group flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-blue-50/50 rounded-xl hover:bg-primary/20 cursor-pointer transition-all duration-300 border border-primary/20">
               <div className="p-3 bg-primary rounded-xl shadow-md group-hover:scale-110 transition-transform duration-300">
                 <FileText className="h-5 w-5 text-white" />
               </div>
@@ -176,7 +176,7 @@ export default function AdminDashboard() {
             </div>
           </div>
         </CardContent>
-      </Card> */}
+      </Card>
     </div>
   );
 }
