@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Edit3, Save, Plus, Trash2, Languages, Globe } from "lucide-react";
 import type { MultilingualData } from "@/types/content";
 import type { Feature } from "@/types/content";
+import LanguageTabs from "./LanguageTabs";
 
 interface FeaturesSectionEditFormProps {
   data: MultilingualData;
@@ -112,32 +113,7 @@ export default function FeaturesSectionEditForm({
   return (
     <div className="space-y-8">
       {/* Language Tabs */}
-      <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Languages className="h-5 w-5" />
-            Chọn ngôn ngữ chỉnh sửa
-          </CardTitle>
-          <div className="flex space-x-2">
-            <Button
-              variant={activeLanguage === "vi" ? "default" : "outline"}
-              onClick={() => setActiveLanguage("vi")}
-              className="flex items-center gap-2"
-              size="sm"
-            >
-              🇻🇳 Tiếng Việt
-            </Button>
-            <Button
-              variant={activeLanguage === "en" ? "default" : "outline"}
-              onClick={() => setActiveLanguage("en")}
-              className="flex items-center gap-2"
-              size="sm"
-            >
-              🇺🇸 English
-            </Button>
-          </div>
-        </CardHeader>
-      </Card>
+      <LanguageTabs activeLanguage={activeLanguage} onChange={setActiveLanguage} />
 
       {/* Section Info Edit */}
       <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">

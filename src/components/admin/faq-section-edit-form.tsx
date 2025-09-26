@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Plus, Save, Trash2, Languages, HelpCircle } from "lucide-react";
 import type { MultilingualData, FaqItem } from "@/types/content";
+import LanguageTabs from "./LanguageTabs";
 
 interface FaqSectionEditFormProps {
   data: MultilingualData;
@@ -92,29 +93,8 @@ export default function FaqSectionEditForm({
 
   return (
     <div className="space-y-6">
-      <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Languages className="h-5 w-5" /> Chọn ngôn ngữ chỉnh sửa
-          </CardTitle>
-          <div className="flex gap-2">
-            <Button
-              variant={activeLanguage === "vi" ? "default" : "outline"}
-              onClick={() => setActiveLanguage("vi")}
-              size="sm"
-            >
-              🇻🇳 Tiếng Việt
-            </Button>
-            <Button
-              variant={activeLanguage === "en" ? "default" : "outline"}
-              onClick={() => setActiveLanguage("en")}
-              size="sm"
-            >
-              🇺🇸 English
-            </Button>
-          </div>
-        </CardHeader>
-      </Card>
+      {/* Language Tabs */}
+      <LanguageTabs activeLanguage={activeLanguage} onChange={setActiveLanguage} />
 
       <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
         <CardHeader>
