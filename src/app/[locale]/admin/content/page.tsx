@@ -8,16 +8,18 @@ import FeaturesSectionEditForm from "@/components/admin/features-section-edit-fo
 import PricingSectionEditForm from "../../../../components/admin/pricing-section-edit-form";
 import FaqSectionEditForm from "../../../../components/admin/faq-section-edit-form";
 import DashboardSectionEditForm from "../../../../components/admin/dashboard-section-edit-form";
+import TestimonialsSectionEditForm from "../../../../components/admin/testimonials-section-edit-form";
 import type { MultilingualData } from "@/types/content";
 import { useContentManagement } from "@/hooks/useContentManagement";
 
-type SectionKey = "features" | "dashboard" | "pricing" | "faq";
+type SectionKey = "features" | "dashboard" | "pricing" | "faq" | "testimonials";
 
 const SECTION_LABELS: Record<SectionKey, string> = {
   features: "Ưu điểm (Features)",
   dashboard: "Bảng điều khiển (Dashboard)",
   pricing: "Bảng giá (Pricing)",
   faq: "Câu hỏi thường gặp (FAQ)",
+  testimonials: "Lời chứng thực (Testimonials)",
 };
 
 export default function ContentManagement() {
@@ -130,6 +132,14 @@ export default function ContentManagement() {
       )}
       {activeSection === "faq" && (
         <FaqSectionEditForm
+          data={data}
+          onDataChange={(newData: MultilingualData) => setData(newData)}
+          onSave={saveData}
+          saving={saving}
+        />
+      )}
+      {activeSection === "testimonials" && (
+        <TestimonialsSectionEditForm
           data={data}
           onDataChange={(newData: MultilingualData) => setData(newData)}
           onSave={saveData}

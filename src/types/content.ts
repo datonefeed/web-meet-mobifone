@@ -31,6 +31,15 @@ export type FaqItem = {
   category: string;
 };
 
+export type Testimonial = {
+  id: number;
+  name: string;
+  title: string;
+  company: string;
+  content: string;
+  avatar: string;
+};
+
 export type LanguageData = {
   FeaturesSection: {
     title: string;
@@ -51,6 +60,12 @@ export type LanguageData = {
     noResults?: string;
     faqCategories: string[];
     faqs: FaqItem[];
+  };
+  TestimonialsSection: {
+    title: string;
+    titleHighlight: string;
+    description: string;
+    testimonials: Testimonial[];
   };
   
   [key: string]: unknown;
