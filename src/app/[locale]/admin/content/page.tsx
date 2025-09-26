@@ -12,6 +12,18 @@ import TestimonialsSectionEditForm from "../../../../components/admin/testimonia
 import type { MultilingualData } from "@/types/content";
 import { useContentManagement } from "@/hooks/useContentManagement";
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
 type SectionKey = "features" | "dashboard" | "pricing" | "faq" | "testimonials";
 
 const SECTION_LABELS: Record<SectionKey, string> = {
@@ -66,15 +78,33 @@ export default function ContentManagement() {
           </div>
         </div>
         <div className="flex space-x-3">
-          <Button
-            variant="outline"
-            onClick={loadData}
-            disabled={loading}
-            className="hover:bg-gray-50 border-gray-300"
-          >
-            <RotateCcw className="h-4 w-4 mr-2" />
-            Tải lại
-          </Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button
+                variant="outline"
+                disabled={loading}
+                className="hover:bg-gray-50 border-gray-300"
+              >
+                <RotateCcw className="h-4 w-4 mr-2" />
+                Tải lại
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Xác nhận tải lại</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Bạn có chắc chắn muốn tải lại dữ liệu không?
+                  <br />
+                  Mọi thay đổi chưa lưu sẽ bị mất.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Hủy</AlertDialogCancel>
+                <AlertDialogAction onClick={loadData}>Xác nhận</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+
           <Button onClick={saveData} disabled={saving} className="bg-green-600 hover:bg-green-700">
             <Save className="h-4 w-4 mr-2" />
             {saving ? "Đang lưu..." : "Lưu tất cả"}

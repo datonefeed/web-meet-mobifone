@@ -93,12 +93,6 @@
         "title": "Advanced Features",
         "description": "Includes features like AI integration, meeting summaries, live translation, and mobile call-in",
         "bgColor": "bg-teal-500"
-      },
-      {
-        "number": "05",
-        "title": "New Feature",
-        "description": "Feature description",
-        "bgColor": "bg-blue-400"
       }
     ]
   },

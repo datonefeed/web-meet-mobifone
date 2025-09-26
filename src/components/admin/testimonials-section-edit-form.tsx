@@ -142,7 +142,7 @@ export default function TestimonialsSectionEditForm({
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
           <div className="flex items-center space-x-2">
             <MessageSquareText className="h-5 w-5 text-blue-600" />
-            <CardTitle className="text-lg font-semibold text-gray-900">
+            <CardTitle className="text-xl font-bold text-gray-900">
               Quản lý Section Testimonials
             </CardTitle>
           </div>
