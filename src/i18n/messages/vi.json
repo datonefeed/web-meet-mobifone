@@ -93,12 +93,6 @@
         "title": "Tính năng nâng cao",
         "description": "Xây dựng tính năng như tích hợp AI, Kết luận cuộc họp, Dịch thuật trực tuyến, gọi di động để vào cuộc họp",
         "bgColor": "bg-teal-500"
-      },
-      {
-        "number": "05",
-        "title": "Tính năng mới",
-        "description": "Mô tả tính năng",
-        "bgColor": "bg-blue-400"
       }
     ]
   },
