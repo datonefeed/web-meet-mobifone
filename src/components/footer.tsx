@@ -89,12 +89,12 @@ export default function Footer() {
             className="space-y-4"
           >
             <h3 className="text-lg font-semibold mb-4">{t("downloadTitle")}</h3>
-            <div className="space-y-3">
+            <div className="space-y-3 lg:flex">
               {apps.map((app: App, idx: number) => (
                 <Button
                   key={idx}
                   variant="outline"
-                  className="w-full bg-black border-gray-600 text-white hover:bg-black/30 hover:text-white justify-start p-3 h-auto"
+                  className="mt-3 mr-2 lg:w-full w-56 bg-black border-gray-600 text-white hover:bg-black/30 hover:text-white justify-start p-3 h-12"
                 >
                   <div className="flex items-center space-x-3">
                     <img src={app.icon} alt={app.name} className="mx-auto h-8" />
