@@ -63,7 +63,7 @@ export function FeaturesSection() {
           </p>
         </motion.div>
 
-        {/* Carousel hiển thị features */}
+        {/* Carousel features */}
         <motion.div
           ref={ref}
           variants={containerVariants}
