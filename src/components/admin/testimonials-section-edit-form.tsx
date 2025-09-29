@@ -5,9 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Save, Trash2, Languages, MessageSquareText, User, Edit3 } from "lucide-react";
+import { Plus, Save, Trash2, MessageSquareText, User, Edit3 } from "lucide-react";
 import type { MultilingualData, Testimonial } from "@/types/content";
 import LanguageTabs from "./LanguageTabs";
+import ConfirmDialog from "./ConfirmDialog";
 
 interface TestimonialsSectionEditFormProps {
   data: MultilingualData;
@@ -147,15 +148,18 @@ export default function TestimonialsSectionEditForm({
             </CardTitle>
           </div>
           <div className="flex gap-2">
-            <Button
-              onClick={onSave}
-              disabled={saving}
-              size="sm"
-              className="bg-green-600 hover:bg-green-700"
-            >
-              <Save className="h-4 w-4 mr-2" />
-              {saving ? "Đang lưu..." : "Lưu"}
-            </Button>
+            {/* Save Button */}
+            <ConfirmDialog
+              trigger={
+                <Button disabled={saving} size="sm" className="bg-green-600 hover:bg-green-700">
+                  <Save className="h-4 w-4 mr-2" />
+                  {saving ? "Đang lưu..." : "Lưu"}
+                </Button>
+              }
+              title="Xác nhận lưu thay đổi"
+              description="Bạn có chắc chắn muốn lưu thay đổi không? Mọi thay đổi sẽ được cập nhật."
+              onConfirm={onSave}
+            />
           </div>
         </CardHeader>
 

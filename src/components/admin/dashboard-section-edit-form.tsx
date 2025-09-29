@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Plus, Save, Trash2, Languages, LayoutList } from "lucide-react";
 import type { MultilingualData, DashboardFeature } from "@/types/content";
 import LanguageTabs from "./LanguageTabs";
+import ConfirmDialog from "./ConfirmDialog";
 
 interface DashboardSectionEditFormProps {
   data: MultilingualData;
@@ -95,7 +96,7 @@ export default function DashboardSectionEditForm({
     <div className="space-y-6">
       {/* Language Tabs */}
       <LanguageTabs activeLanguage={activeLanguage} onChange={setActiveLanguage} />
-
+      {/* Header with Add and Save buttons */}
       <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
         <CardHeader>
           <div className="flex items-center justify-between flex-col md:flex-row">
@@ -104,17 +105,22 @@ export default function DashboardSectionEditForm({
               {activeLanguage === "vi" ? "Tiếng Việt" : "English"}
             </CardTitle>
             <div className="flex gap-2">
+              {/* Add Button */}
               <Button onClick={addItem} size="sm" className="bg-primary">
                 <Plus className="h-4 w-4 mr-2" /> Thêm mục
               </Button>
-              <Button
-                onClick={onSave}
-                disabled={saving}
-                size="sm"
-                className="bg-green-600 hover:bg-green-700"
-              >
-                <Save className="h-4 w-4 mr-2" /> {saving ? "Đang lưu..." : "Lưu thay đổi"}
-              </Button>
+
+              {/* Save Button */}
+              <ConfirmDialog
+                trigger={
+                  <Button disabled={saving} size="sm" className="bg-green-600 hover:bg-green-700">
+                    <Save className="h-4 w-4 mr-2" /> {saving ? "Đang lưu..." : "Lưu thay đổi"}
+                  </Button>
+                }
+                title="Xác nhận lưu thay đổi"
+                description="Bạn có chắc chắn muốn lưu thay đổi không? Mọi thay đổi sẽ được cập nhật."
+                onConfirm={onSave}
+              />
             </div>
           </div>
         </CardHeader>

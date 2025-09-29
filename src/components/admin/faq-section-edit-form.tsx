@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Plus, Save, Trash2, Languages, HelpCircle } from "lucide-react";
 import type { MultilingualData, FaqItem } from "@/types/content";
 import LanguageTabs from "./LanguageTabs";
+import ConfirmDialog from "./ConfirmDialog";
 
 interface FaqSectionEditFormProps {
   data: MultilingualData;
@@ -110,14 +111,17 @@ export default function FaqSectionEditForm({
               <Button onClick={addFaq} size="sm" className="bg-primary">
                 <Plus className="h-4 w-4 mr-2" /> Thêm FAQ
               </Button>
-              <Button
-                onClick={onSave}
-                disabled={saving}
-                size="sm"
-                className="bg-green-600 hover:bg-green-700"
-              >
-                <Save className="h-4 w-4 mr-2" /> {saving ? "Đang lưu..." : "Lưu thay đổi"}
-              </Button>
+              {/* Save Button */}
+              <ConfirmDialog
+                trigger={
+                  <Button disabled={saving} size="sm" className="bg-green-600 hover:bg-green-700">
+                    <Save className="h-4 w-4 mr-2" /> {saving ? "Đang lưu..." : "Lưu thay đổi"}
+                  </Button>
+                }
+                title="Xác nhận lưu thay đổi"
+                description="Bạn có chắc chắn muốn lưu thay đổi không? Mọi thay đổi sẽ được cập nhật."
+                onConfirm={onSave}
+              />
             </div>
           </div>
         </CardHeader>
