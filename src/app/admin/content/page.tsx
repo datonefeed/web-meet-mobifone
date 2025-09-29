@@ -5,25 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Edit3, RotateCcw, AlertCircle, LayoutGrid, Save } from "lucide-react";
 import FeaturesSectionEditForm from "@/components/admin/features-section-edit-form";
-
 import type { MultilingualData } from "@/types/content";
 import { useContentManagement } from "@/hooks/useContentManagement";
-
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 import DashboardSectionEditForm from "@/components/admin/dashboard-section-edit-form";
 import PricingSectionEditForm from "@/components/admin/pricing-section-edit-form";
 import FaqSectionEditForm from "@/components/admin/faq-section-edit-form";
 import TestimonialsSectionEditForm from "@/components/admin/testimonials-section-edit-form";
+import ConfirmDialog from "@/components/admin/ConfirmDialog";
 
 type SectionKey = "features" | "dashboard" | "pricing" | "faq" | "testimonials";
 
@@ -79,37 +67,31 @@ export default function ContentManagement() {
           </div>
         </div>
         <div className="flex space-x-3">
-          <AlertDialog>
-            <AlertDialogTrigger asChild>
-              <Button
-                variant="outline"
-                disabled={loading}
-                className="hover:bg-gray-50 border-gray-300"
-              >
+          {/* Reload Button*/}
+          <ConfirmDialog
+            trigger={
+              <Button variant="outline" className="hover:bg-gray-50 border-gray-300">
                 <RotateCcw className="h-4 w-4 mr-2" />
                 Tải lại
               </Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Xác nhận tải lại</AlertDialogTitle>
-                <AlertDialogDescription>
-                  Bạn có chắc chắn muốn tải lại dữ liệu không?
-                  <br />
-                  Mọi thay đổi chưa lưu sẽ bị mất.
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Hủy</AlertDialogCancel>
-                <AlertDialogAction onClick={loadData}>Xác nhận</AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
+            }
+            title="Xác nhận tải lại"
+            description="Bạn có chắc chắn muốn tải lại dữ liệu không? Mọi thay đổi chưa lưu sẽ bị mất."
+            onConfirm={loadData}
+          />
 
-          <Button onClick={saveData} disabled={saving} className="bg-green-600 hover:bg-green-700">
-            <Save className="h-4 w-4 mr-2" />
-            {saving ? "Đang lưu..." : "Lưu tất cả"}
-          </Button>
+          {/* Save All Button */}
+          <ConfirmDialog
+            trigger={
+              <Button disabled={saving} className="bg-green-600 hover:bg-green-700">
+                <Save className="h-4 w-4 mr-2" />
+                {saving ? "Đang lưu..." : "Lưu tất cả"}
+              </Button>
+            }
+            title="Xác nhận lưu tất cả"
+            description="Bạn có chắc chắn muốn lưu tất cả thay đổi không? Mọi thay đổi sẽ được cập nhật."
+            onConfirm={saveData}
+          />
         </div>
       </div>
 
