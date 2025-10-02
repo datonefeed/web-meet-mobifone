@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LayoutDashboard, FileText, Settings, Menu, X } from "lucide-react";
+import { Toaster } from "sonner";
 
 const sidebarItems = [
   {
@@ -74,7 +75,7 @@ export default function AdminLayout({
                   className={cn(
                     "group flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 ease-in-out",
                     isActive
-                      ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25 transform scale-105"
+                      ? "bg-gradient-to-r bg-primary text-white shadow-lg shadow-blue-500/25 transform scale-105"
                       : "text-gray-300 hover:text-white hover:bg-slate-700/50 hover:transform hover:scale-105"
                   )}
                   onClick={() => setSidebarOpen(false)}
@@ -140,6 +141,7 @@ export default function AdminLayout({
         </header>
 
         {/* Page content */}
+        <Toaster richColors position="top-right" />
         <main className="flex-1 p-8 overflow-y-auto">{children}</main>
       </div>
     </div>

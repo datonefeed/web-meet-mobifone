@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from "sonner"; 
 import type { MultilingualData } from "@/types/content";
 
 export function useContentManagement() {
@@ -15,8 +16,10 @@ export function useContentManagement() {
       const response = await fetch("/api/admin/content");
       const result = await response.json();
       setData(result);
+      toast.success("Tải dữ liệu thành công"); 
     } catch (error) {
       console.error("Error loading data:", error);
+      toast.error("Lỗi khi tải dữ liệu");
     } finally {
       setLoading(false);
     }
@@ -33,10 +36,11 @@ export function useContentManagement() {
         body: JSON.stringify(data),
       });
       if (!response.ok) throw new Error("Save failed");
-      alert("Đã lưu thành công!");
+
+      toast.success("Đã lưu thành công 🎉"); 
     } catch (error) {
       console.error("Error saving data:", error);
-      alert("Có lỗi xảy ra khi lưu!");
+      toast.error("Lưu thất bại");
     } finally {
       setSaving(false);
     }

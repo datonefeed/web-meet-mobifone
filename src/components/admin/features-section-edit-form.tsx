@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Edit3, Save, Plus, Trash2, Languages, Globe } from "lucide-react";
 import type { MultilingualData } from "@/types/content";
 import type { Feature } from "@/types/content";
+import LanguageTabs from "./LanguageTabs";
+import ConfirmDialog from "./ConfirmDialog";
 
 interface FeaturesSectionEditFormProps {
   data: MultilingualData;
@@ -112,32 +114,7 @@ export default function FeaturesSectionEditForm({
   return (
     <div className="space-y-8">
       {/* Language Tabs */}
-      <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Languages className="h-5 w-5" />
-            Chọn ngôn ngữ chỉnh sửa
-          </CardTitle>
-          <div className="flex space-x-2">
-            <Button
-              variant={activeLanguage === "vi" ? "default" : "outline"}
-              onClick={() => setActiveLanguage("vi")}
-              className="flex items-center gap-2"
-              size="sm"
-            >
-              🇻🇳 Tiếng Việt
-            </Button>
-            <Button
-              variant={activeLanguage === "en" ? "default" : "outline"}
-              onClick={() => setActiveLanguage("en")}
-              className="flex items-center gap-2"
-              size="sm"
-            >
-              🇺🇸 English
-            </Button>
-          </div>
-        </CardHeader>
-      </Card>
+      <LanguageTabs activeLanguage={activeLanguage} onChange={setActiveLanguage} />
 
       {/* Section Info Edit */}
       <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
@@ -191,14 +168,17 @@ export default function FeaturesSectionEditForm({
                 <Plus className="h-4 w-4 mr-2" />
                 Thêm tính năng
               </Button>
-              <Button
-                onClick={onSave}
-                disabled={saving}
-                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/25"
-              >
-                <Save className="h-4 w-4 mr-2" />
-                {saving ? "Đang lưu..." : "Lưu thay đổi"}
-              </Button>
+              {/* Save Button */}
+              <ConfirmDialog
+                trigger={
+                  <Button disabled={saving} size="sm" className="bg-green-600 hover:bg-green-700">
+                    <Save className="h-4 w-4 mr-2" /> {saving ? "Đang lưu..." : "Lưu thay đổi"}
+                  </Button>
+                }
+                title="Xác nhận lưu thay đổi"
+                description="Bạn có chắc chắn muốn lưu thay đổi không? Mọi thay đổi sẽ được cập nhật."
+                onConfirm={onSave}
+              />
             </div>
           </div>
         </CardHeader>
